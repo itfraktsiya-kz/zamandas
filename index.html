@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Zamandas Cafe</title>
+    <meta name="description" content="Zamandas Cafe — вкус, атмосфера, традиции." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark-1: #120E0D;
+            --bg-dark-2: #1A1412;
+            --bg-dark-3: #221917;
+            --burgundy: #6B1F16;
+            --burgundy-bright: #8E2B1F;
+            --gold: #D1A15C;
+            --cream-light: #F3E5D0;
+            --white: #FFFFFF;
+            --border-gold: rgba(209, 161, 92, 0.15);
+            --border-gold-hover: rgba(209, 161, 92, 0.4);
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --shadow-inset: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+            --blur-premium: blur(16px);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --radius-pill: 50px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --font-logo: 'Orbitron', 'Arial Black', sans-serif;
+            --font-heading: 'Orbitron', 'Georgia', serif;
+            --font-body: 'Orbitron', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-accent: 'Playfair Display', 'Georgia', serif;
+            --font-cursive: 'Great Vibes', cursive;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-tap-highlight-color: transparent;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark-1);
+            color: var(--cream-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800' width='100%25' height='100%25'%3E%3Cpath d='M-50,150 C50,150 100,50 150,50 C200,50 250,180 350,150 C400,130 420,50 450,0' fill='none' stroke='%23ffffff' stroke-width='3'/%3E%3Cpath d='M-50,220 C70,220 120,100 180,100 C240,100 270,240 370,200' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3Cpath d='M-50,300 C20,300 50,340 100,340 C150,340 180,280 250,350' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3Crect x='450' y='120' width='60' height='60' transform='rotate(45 480 150)' fill='none' stroke='%23ffffff' stroke-width='3'/%3E%3Crect x='460' y='420' width='70' height='70' transform='rotate(45 495 455)' fill='none' stroke='%23ffffff' stroke-width='3'/%3E%3Cg transform='translate(600, 150) rotate(45)'%3E%3Crect x='0' y='0' width='80' height='80' fill='none' stroke='%23ffffff' stroke-width='3'/%3E%3Crect x='15' y='15' width='50' height='50' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3C/g%3E%3Cg transform='translate(580, 500)'%3E%3Cpath d='M0,150 Q50,0 100,150' fill='none' stroke='%23ffffff' stroke-width='3'/%3E%3Cpath d='M10,150 Q50,30 90,150' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3Cpath d='M-20,150 C30,150 50,80 120,150' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 800px 800px;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ============================================================
+            ВЕРХНЯЯ ПАНЕЛЬ
+        ============================================================ */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(18, 14, 13, 0.85);
+            backdrop-filter: var(--blur-premium);
+            -webkit-backdrop-filter: var(--blur-premium);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-gold);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .top-bar .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .top-bar .logo-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid var(--gold);
+            object-fit: contain;
+            padding: 2px;
+            background: var(--bg-dark-2);
+        }
+
+        /* ============================================================
+            ЛОГОТИП: ZAMANDAS (крупное) + cafe (под S)
+        ============================================================ */
+        .logo-text {
+            font-family: var(--font-logo);
+            color: var(--gold);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            display: flex;
+            align-items: flex-end;
+            gap: 0px;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        /* ZAMANDAS — основное слово */
+        .logo-text .zamandas {
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        /* Каждая буква ZAMANDAS — уникальная */
+        .logo-text .letter {
+            display: inline-block;
+            transition: var(--transition);
+            transform-origin: center;
+        }
+
+        .logo-text .letter:hover {
+            transform: scale(1.15) rotate(-2deg);
+            color: var(--cream-light);
+            text-shadow: 0 0 25px rgba(209, 161, 92, 0.4);
+        }
+
+        /* === БУКВЫ ZAMANDAS === */
+        .logo-text .letter-z { font-weight: 900; transform: skew(-3deg) scaleY(1.05); letter-spacing: 3px; }
+        .logo-text .letter-a1 { font-weight: 800; font-style: italic; transform: rotate(-1.5deg) scaleX(0.95); }
+        .logo-text .letter-m { font-weight: 900; transform: scaleY(1.08) scaleX(1.04); letter-spacing: 3px; }
+        .logo-text .letter-a2 { font-weight: 700; transform: rotate(2deg) scaleY(0.95); }
+        .logo-text .letter-n { font-weight: 800; transform: skew(2deg) scaleY(1.02); }
+        .logo-text .letter-d { font-weight: 900; transform: scaleX(1.08) scaleY(1.02); }
+        .logo-text .letter-a3 { font-weight: 700; font-style: italic; transform: rotate(-2deg) scaleX(0.95); }
+        .logo-text .letter-s { 
+            font-weight: 900; 
+            transform: scaleY(1.2) scaleX(0.9) rotate(-1deg);
+            font-style: italic;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(209,161,92,0.1);
+            position: relative;
+            letter-spacing: 2px;
+        }
+        .logo-text .letter-s::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
+        }
+
+        /* ============================================================
+            CAFE — под буквой S, чуть крупнее
+        ============================================================ */
+        .logo-text .cafe-small {
+            display: flex;
+            align-items: center;
+            gap: 1px;
+            font-size: 0.85rem;
+            color: var(--cream-light);
+            opacity: 0.55;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: lowercase;
+            font-family: var(--font-cursive), var(--font-body);
+            font-style: italic;
+            margin-left: -6px;
+            margin-bottom: 0px;
+            transform: rotate(-2deg) scaleY(0.9);
+            transition: var(--transition);
+            position: relative;
+            top: 8px;
+        }
+
+        .logo-text .cafe-small:hover {
+            opacity: 1;
+            color: var(--gold);
+            transform: rotate(-1deg) scaleY(1) scaleX(1.02);
+        }
+
+        /* Каждая буква cafe — своя уникальная */
+        .logo-text .cafe-small .letter-c { font-weight: 400; transform: rotate(-2deg); }
+        .logo-text .cafe-small .letter-a4 { font-weight: 300; transform: scaleX(1.05) scaleY(0.9); }
+        .logo-text .cafe-small .letter-f { font-weight: 400; transform: skew(-2deg) scaleY(1.05); }
+        .logo-text .cafe-small .letter-e { font-weight: 300; transform: rotate(2deg) scaleY(0.9); }
+
+        .top-bar .actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .top-bar .actions .icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            border-radius: 50%;
+            border: 1px solid var(--border-gold);
+            background: rgba(255, 255, 255, 0.02);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .top-bar .actions .icon-btn:hover {
+            border-color: var(--gold);
+            background: rgba(209, 161, 92, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .top-bar .actions .icon-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .top-bar .actions .whatsapp-btn {
+            border-color: rgba(37, 211, 102, 0.3);
+            background: rgba(37, 211, 102, 0.08);
+        }
+        .top-bar .actions .whatsapp-btn:hover {
+            background: #25D366;
+            border-color: #25D366;
+        }
+        .top-bar .actions .whatsapp-btn:hover svg path { fill: #120E0D; }
+
+        .top-bar .actions .instagram-btn {
+            border-color: rgba(225, 48, 108, 0.3);
+            background: rgba(225, 48, 108, 0.08);
+        }
+        .top-bar .actions .instagram-btn:hover {
+            background: #E1306C;
+            border-color: #E1306C;
+        }
+        .top-bar .actions .instagram-btn:hover svg path { fill: #120E0D; }
+
+        .top-bar .actions .gis-btn {
+            border-color: rgba(35, 130, 196, 0.3);
+            background: rgba(35, 130, 196, 0.08);
+        }
+        .top-bar .actions .gis-btn:hover {
+            background: #2382C4;
+            border-color: #2382C4;
+        }
+        .top-bar .actions .gis-btn:hover svg path { fill: #120E0D; }
+
+        /* ---- СЕКЦИИ ---- */
+        section { padding: 60px 0; }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.7rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-title .small {
+            font-size: 0.7rem;
+            color: var(--cream-light);
+            opacity: 0.5;
+            display: block;
+            font-family: var(--font-body);
+            letter-spacing: 4px;
+            font-weight: 300;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        .section-divider {
+            width: 50px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 40px;
+            opacity: 0.3;
+        }
+
+        /* ============================================================
+            HERO
+        ============================================================ */
+        .hero {
+            padding: 130px 16px 60px;
+            text-align: center;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero .brand-icon-svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.2rem;
+            color: var(--gold);
+            letter-spacing: 8px;
+            font-weight: 700;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            text-transform: uppercase;
+        }
+
+        .hero h1 .cafe {
+            font-size: 1.1rem;
+            color: var(--cream-light);
+            opacity: 0.5;
+            letter-spacing: 12px;
+            font-weight: 300;
+            display: block;
+            margin-top: 6px;
+            text-transform: uppercase;
+        }
+
+        .hero .tagline {
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 8px;
+            margin: 24px 0;
+            font-weight: 300;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .hero .divider {
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto 24px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--font-accent);
+            font-size: 1.4rem;
+            color: var(--cream-light);
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .hero .description {
+            font-size: 0.9rem;
+            color: var(--cream-light);
+            max-width: 320px;
+            margin: 0 auto 36px;
+            opacity: 0.5;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px 28px;
+            border-radius: var(--radius-pill);
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--cream-light);
+            letter-spacing: 2px;
+            cursor: pointer;
+            box-shadow: var(--shadow-inset);
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--burgundy), #44130E);
+            border-color: rgba(209, 161, 92, 0.3);
+            box-shadow: 0 6px 20px rgba(107, 31, 22, 0.4), var(--shadow-inset);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--burgundy-bright), var(--burgundy));
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(107, 31, 22, 0.5), var(--shadow-inset);
+        }
+
+        .btn-outline {
+            border-color: var(--border-gold);
+            background: rgba(26, 20, 18, 0.6);
+            backdrop-filter: var(--blur-premium);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            background: rgba(209, 161, 92, 0.08);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================
+            КАТЕГОРИИ
+        ============================================================ */
+        .category-grid {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 5px 0 25px 0;
+            flex-wrap: nowrap;
+        }
+
+        .category-grid::-webkit-scrollbar { display: none; }
+
+        .category-btn {
+            flex: 0 0 auto;
+            padding: 10px 22px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-gold);
+            background: var(--bg-dark-2);
+            color: var(--cream-light);
+            opacity: 0.7;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-inset);
+            font-family: var(--font-body);
+            text-transform: uppercase;
+        }
+
+        .category-btn.active {
+            border-color: var(--gold);
+            color: var(--bg-dark-1);
+            background: var(--gold);
+            opacity: 1;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(209, 161, 92, 0.3);
+        }
+
+        .category-btn:hover:not(.active) {
+            border-color: var(--border-gold-hover);
+            opacity: 1;
+            background: var(--bg-dark-3);
+            transform: translateY(-1px);
+        }
+
+        /* ============================================================
+            КАРТОЧКИ БЛЮД
+        ============================================================ */
+        .menu-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .menu-item {
+            display: flex;
+            gap: 16px;
+            background: linear-gradient(145deg, var(--bg-dark-2), var(--bg-dark-3));
+            border-radius: var(--radius-md);
+            padding: 16px;
+            border: 1px solid var(--border-gold);
+            transition: var(--transition);
+            align-items: center;
+            box-shadow: var(--shadow-soft), var(--shadow-inset);
+        }
+
+        .menu-item:hover {
+            border-color: var(--border-gold-hover);
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), var(--shadow-inset);
+        }
+
+        .menu-item .item-img-container {
+            position: relative;
+            width: 85px;
+            height: 85px;
+            flex-shrink: 0;
+        }
+
+        .menu-item .item-img {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-sm);
+            background: var(--bg-dark-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            border: 1px solid rgba(255,255,255,0.03);
+            object-fit: cover;
+        }
+
+        .menu-item .item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .menu-item .item-title-wrapper {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .menu-item .item-info h4 {
+            font-size: 1rem;
+            color: var(--white);
+            font-weight: 600;
+            font-family: var(--font-body);
+            letter-spacing: 0.5px;
+        }
+
+        .menu-item .item-info .desc {
+            font-size: 0.75rem;
+            color: var(--cream-light);
+            opacity: 0.5;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            letter-spacing: 0.3px;
+        }
+
+        .menu-item .item-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .menu-item .item-price {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--gold);
+            font-weight: 700;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-item .item-price .old {
+            font-size: 0.75rem;
+            color: var(--cream-light);
+            opacity: 0.3;
+            text-decoration: line-through;
+            font-weight: 400;
+            display: block;
+            margin-bottom: -2px;
+        }
+
+        .item-badge {
+            font-size: 0.55rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: inline-block;
+            font-family: var(--font-body);
+        }
+
+        .item-badge.hit {
+            background: rgba(209, 161, 92, 0.15);
+            color: var(--gold);
+            border: 1px solid rgba(209, 161, 92, 0.3);
+        }
+
+        .item-badge.sale {
+            background: rgba(142, 43, 31, 0.15);
+            color: #FF6B6B;
+            border: 1px solid rgba(142, 43, 31, 0.3);
+        }
+
+        .menu-item .btn-order {
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            letter-spacing: 1px;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+        }
+
+        .menu-item .btn-order:hover {
+            background: var(--gold);
+            color: var(--bg-dark-1);
+            box-shadow: 0 4px 12px rgba(209, 161, 92, 0.2);
+        }
+
+        .rating-stars-item {
+            color: var(--gold);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            margin-bottom: 2px;
+        }
+
+        /* ============================================================
+            ПРЕИМУЩЕСТВА С SVG-ИКОНКАМИ
+        ============================================================ */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .feature-item {
+            background: var(--bg-dark-2);
+            padding: 24px 16px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-gold);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .feature-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .feature-item .feature-icon {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 10px;
+            stroke: var(--gold);
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover .feature-icon {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .feature-item h4 {
+            font-family: var(--font-heading);
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .feature-item p {
+            font-size: 0.75rem;
+            color: var(--cream-light);
+            opacity: 0.5;
+            margin-top: 4px;
+            letter-spacing: 0.3px;
+        }
+
+        /* ============================================================
+            ОТЗЫВЫ
+        ============================================================ */
+        .review-block {
+            text-align: center;
+            padding: 36px 24px;
+            background: linear-gradient(145deg, var(--bg-dark-2), var(--bg-dark-3));
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-gold);
+            box-shadow: var(--shadow-soft), var(--shadow-inset);
+        }
+
+        .review-block .stars {
+            font-size: 2.2rem;
+            color: #FFB800;
+            letter-spacing: 6px;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .review-block .score {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--white);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+
+        .review-block .sub {
+            font-size: 0.85rem;
+            color: var(--cream-light);
+            opacity: 0.5;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================================
+            БРОНИРОВАНИЕ
+        ============================================================ */
+        .booking-form {
+            background: var(--bg-dark-2);
+            padding: 28px 20px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-gold);
+            box-shadow: var(--shadow-soft), var(--shadow-inset);
+        }
+
+        .booking-form .form-group {
+            margin-bottom: 16px;
+        }
+
+        .booking-form .form-group label {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-family: var(--font-body);
+        }
+
+        .booking-form .form-group input,
+        .booking-form .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-gold);
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--white);
+            font-size: 0.95rem;
+            font-family: var(--font-body);
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+        }
+
+        .booking-form .form-group input:focus,
+        .booking-form .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 10px rgba(209, 161, 92, 0.1);
+        }
+
+        /* ============================================================
+            БЛОК 2ГИС
+        ============================================================ */
+        .gis-section {
+            padding: 30px 0;
+        }
+
+        .gis-card {
+            background: linear-gradient(135deg, var(--bg-dark-2), var(--bg-dark-3));
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-gold);
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-soft), var(--shadow-inset);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gis-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at top right, rgba(209, 161, 92, 0.05), transparent 60%);
+            pointer-events: none;
+        }
+
+        .gis-card .gis-icon-svg {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 16px;
+        }
+
+        .gis-card .gis-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--white);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .gis-card .gis-rating {
+            font-size: 0.95rem;
+            color: var(--cream-light);
+            margin: 8px 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .gis-card .gis-rating .score {
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .gis-card .gis-rating .stars {
+            color: #FFB800;
+            letter-spacing: 3px;
+        }
+
+        .gis-card .gis-rating .count {
+            opacity: 0.4;
+            font-size: 0.8rem;
+        }
+
+        .gis-card .btn-gis-premium {
+            background: #2382C4;
+            border-color: #2382C4;
+            color: var(--white);
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(35, 130, 196, 0.3), var(--shadow-inset);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .gis-card .btn-gis-premium:hover {
+            background: #2A96DC;
+            border-color: #2A96DC;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(35, 130, 196, 0.4), var(--shadow-inset);
+        }
+
+        /* ============================================================
+            КОНТАКТЫ С SVG-ИКОНКАМИ
+        ============================================================ */
+        .contacts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: var(--bg-dark-2);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-gold);
+            box-shadow: var(--shadow-soft), var(--shadow-inset);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: var(--border-gold-hover);
+            background: var(--bg-dark-3);
+        }
+
+        .contact-item .icon-svg-wrapper {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-item .icon-svg-wrapper svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--gold);
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .contact-item .info {
+            font-size: 0.85rem;
+            color: var(--cream-light);
+            opacity: 0.6;
+            line-height: 1.4;
+            letter-spacing: 0.3px;
+        }
+
+        .contact-item .info strong {
+            color: var(--white);
+            font-weight: 600;
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 1px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================================
+            НИЖНЯЯ НАВИГАЦИЯ
+        ============================================================ */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(18, 14, 13, 0.93);
+            backdrop-filter: var(--blur-premium);
+            -webkit-backdrop-filter: var(--blur-premium);
+            border-top: 1px solid var(--border-gold);
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 10px;
+            z-index: 100;
+            padding-bottom: calc(8px + env(safe-area-inset-bottom));
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+        }
+
+        .bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.55rem;
+            color: var(--cream-light);
+            opacity: 0.5;
+            padding: 4px 12px;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            font-family: var(--font-body);
+        }
+
+        .bottom-nav a svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .bottom-nav a svg path {
+            fill: var(--cream-light);
+            transition: var(--transition);
+        }
+
+        .bottom-nav a:hover, .bottom-nav a.active {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        .bottom-nav a:hover svg path, .bottom-nav a.active svg path {
+            fill: var(--gold);
+        }
+
+        .bottom-nav .btn-nav {
+            background: var(--burgundy);
+            opacity: 1 !important;
+            border: 1px solid rgba(209, 161, 92, 0.2);
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            flex-direction: row;
+            gap: 6px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-inset);
+        }
+
+        .bottom-nav .btn-nav svg path {
+            fill: var(--cream-light) !important;
+        }
+
+        .bottom-nav .btn-nav:hover {
+            background: var(--burgundy-bright);
+            border-color: var(--gold);
+        }
+
+        /* ============================================================
+            АДАПТИВНОСТЬ
+        ============================================================ */
+        @media (min-width: 768px) {
+            .container { max-width: 720px; padding: 0 24px; }
+            .hero h1 { font-size: 4.5rem; }
+            .hero h1 .cafe { font-size: 1.4rem; letter-spacing: 14px; }
+            .hero .tagline { font-size: 1rem; letter-spacing: 12px; }
+            .hero-btns { flex-direction: row; max-width: 460px; gap: 16px; }
+            .menu-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .menu-item {
+                flex-direction: row;
+                align-items: center;
+                padding: 16px;
+            }
+            .features-grid { grid-template-columns: repeat(4, 1fr); }
+            .contacts-list {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .bottom-nav { display: none; }
+            body { padding-bottom: 0; }
+            .top-bar { padding: 16px 40px; }
+            .logo-text .zamandas { font-size: 2.2rem; }
+            .logo-text .cafe-small { font-size: 1rem; }
+        }
+
+        @media (min-width: 1024px) {
+            .container { max-width: 980px; padding: 0 32px; }
+            .hero { padding: 150px 32px 80px; }
+            .hero h1 { font-size: 5.5rem; }
+            .menu-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .feature-item { padding: 16px 12px; }
+            .feature-item h4 { font-size: 0.75rem; }
+            .feature-item p { font-size: 0.65rem; }
+            .logo-text .zamandas { font-size: 1.2rem; }
+            .logo-text .cafe-small { font-size: 0.65rem; }
+            .logo-text { gap: 0px; }
+            .feature-item .feature-icon {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+        ВЕРХНЯЯ ПАНЕЛЬ
+    ============================================================ -->
+    <header class="top-bar">
+        <div class="logo">
+            <img class="logo-img" src="https://i.ibb.co.com/cXC18pHT/Chat-GPT-Image-9-2026-01-49-32.png" alt="Zamandas" />
+            <div class="logo-text">
+                <span class="zamandas">
+                    <span class="letter letter-z">Z</span>
+                    <span class="letter letter-a1">A</span>
+                    <span class="letter letter-m">M</span>
+                    <span class="letter letter-a2">A</span>
+                    <span class="letter letter-n">N</span>
+                    <span class="letter letter-d">D</span>
+                    <span class="letter letter-a3">A</span>
+                    <span class="letter letter-s">S</span>
+                </span>
+                <span class="cafe-small">
+                    <span class="letter letter-c">c</span>
+                    <span class="letter letter-a4">a</span>
+                    <span class="letter letter-f">f</span>
+                    <span class="letter letter-e">e</span>
+                </span>
+            </div>
+        </div>
+        <div class="actions">
+            <a href="https://www.instagram.com/zamandas_cafe" target="_blank" class="icon-btn instagram-btn" title="Instagram">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="20" height="20" rx="4" stroke="#E1306C" stroke-width="2" fill="none"/>
+                    <circle cx="12" cy="12" r="5" stroke="#E1306C" stroke-width="2" fill="none"/>
+                    <circle cx="18" cy="6" r="1" fill="#E1306C"/>
+                </svg>
+            </a>
+            <a href="https://wa.me/77011274262" target="_blank" class="icon-btn whatsapp-btn" title="Написать в WhatsApp">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.413 9.863-9.843.002-2.63-1.023-5.101-2.886-6.968C16.528 1.927 14.061.903 11.51.903c-5.44 0-9.866 4.414-9.87 9.846-.001 1.698.443 3.355 1.288 4.828l-1.015 3.703 3.812-.99c1.451.792 2.992 1.206 4.332 1.206z" fill="#25D366"/>
+                </svg>
+            </a>
+            <a href="https://2gis.kz/kokshetau/firm/70000001000000000" target="_blank" class="icon-btn gis-btn" title="2ГИС">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21C16 17 20 14.2105 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 14.2105 8 17 12 21Z" stroke="#2382C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="10" r="3" stroke="#2382C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- ============================================================
+        HERO
+    ============================================================ -->
+    <section class="hero" id="home">
+        <svg class="brand-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 15C3.79086 15 2 13.2091 2 11C2 8.79086 3.79086 7 6 7H16C17.1046 7 18 7.89543 18 9V13C18 14.1046 17.1046 15 16 15H6Z" stroke="#D1A15C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 9H19C20.6569 9 22 10.3431 22 12C22 13.6569 20.6569 15 19 15H18" stroke="#D1A15C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 3V4" stroke="#D1A15C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 3V4" stroke="#D1A15C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 3V4" stroke="#D1A15C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 21H19" stroke="#D1A15C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h1>
+            ZAMANDAS
+            <span class="cafe">cafe</span>
+        </h1>
+        <div class="tagline">ВКУС · АТМОСФЕРА · ТРАДИЦИИ</div>
+        <div class="divider"></div>
+        <div class="subtitle">Добро пожаловать в Zamandas Cafe</div>
+        <div class="description">Место, где каждый момент становится особенным и неповторимым</div>
+        <div class="hero-btns">
+            <a href="#menu" class="btn btn-primary">Посмотреть меню</a>
+            <a href="#booking" class="btn btn-outline">Забронировать стол</a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+        КАТЕГОРИИ
+    ============================================================ -->
+    <section id="categories" style="padding-bottom: 10px; padding-top: 20px;">
+        <div class="container">
+            <div class="category-grid" id="categoryGrid">
+                <button class="category-btn active" data-cat="all">Все</button>
+                <button class="category-btn" data-cat="breakfast">Завтраки</button>
+                <button class="category-btn" data-cat="main">Горячее</button>
+                <button class="category-btn" data-cat="grill">Мангал</button>
+                <button class="category-btn" data-cat="coffee">Кофе</button>
+                <button class="category-btn" data-cat="tea">Чай</button>
+                <button class="category-btn" data-cat="dessert">Десерты</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+        МЕНЮ
+    ============================================================ -->
+    <section id="menu" style="padding-top:10px;">
+        <div class="container">
+            <div class="section-title">
+                Популярные блюда
+                <span class="small">Шедевры нашей кухни</span>
+            </div>
+            <div class="section-divider"></div>
+
+            <div class="menu-grid" id="menuGrid">
+                <div class="menu-item" data-category="grill">
+                    <div class="item-img-container">
+                        <div class="item-img">🥩</div>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-title-wrapper">
+                            <h4>Стейк Рибай</h4>
+                            <span class="item-badge hit">🔥 Хит</span>
+                        </div>
+                        <div class="rating-stars-item">★★★★★</div>
+                        <div class="desc">Сочное премиальное мясо прожарки Medium с ароматными травами и фирменным соусом.</div>
+                        <div class="item-footer">
+                            <div class="item-price">3 200 ₸</div>
+                            <button class="btn-order">Добавить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="main">
+                    <div class="item-img-container">
+                        <div class="item-img">🍲</div>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-title-wrapper">
+                            <h4>Бешбармак фирменный</h4>
+                            <span class="item-badge hit">Традиции</span>
+                        </div>
+                        <div class="rating-stars-item">★★★★★</div>
+                        <div class="desc">Тонкое домашнее тесто, сочная конина и казы в крепком наваристом бульоне со свежим луком.</div>
+                        <div class="item-footer">
+                            <div class="item-price">4 500 ₸</div>
+                            <button class="btn-order">Добавить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="breakfast">
+                    <div class="item-img-container">
+                        <div class="item-img">🍳</div>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-title-wrapper">
+                            <h4>Премиум Завтрак</h4>
+                            <span class="item-badge sale">% Акция</span>
+                        </div>
+                        <div class="rating-stars-item">★★★★☆</div>
+                        <div class="desc">Яичница-глазунья, хрустящий бекон, венские сосиски, тосты и легкий овощной салат.</div>
+                        <div class="item-footer">
+                            <div class="item-price">2 400 ₸ <span class="old">2 900 ₸</span></div>
+                            <button class="btn-order">Добавить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+        ПРЕИМУЩЕСТВА С SVG-ИКОНКАМИ
+    ============================================================ -->
+    <section id="features">
+        <div class="container">
+            <div class="section-title">
+                Почему Zamandas
+                <span class="small">Наши преимущества</span>
+            </div>
+            <div class="section-divider"></div>
+
+            <div class="features-grid">
+                <!-- Авторские напитки -->
+                <div class="feature-item">
+                    <svg class="feature-icon" viewBox="0 0 44 44" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 14 L34 14 L30 32 C29 37 26 38 22 38 C18 38 15 37 14 32 L10 14 Z"/>
+                        <path d="M16 14 L18 6 L20 14"/>
+                        <path d="M24 14 L26 6 L28 14"/>
+                        <path d="M34 22 L38 22 L38 28 C38 30 36 30 34 28 L34 22 Z"/>
+                        <path d="M10 18 L6 18 L6 24 C6 26 8 26 10 24 L10 18 Z"/>
+                    </svg>
+                    <h4>Авторские напитки</h4>
+                    <p>Уникальные рецепты от наших бариста</p>
+                </div>
+
+                <div class="feature-item">
+    <svg class="feature-icon" viewBox="0 0 44 44" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+
+        <!-- Музыкальная нота -->
+        <path d="M18 13V28"/>
+        <path d="M18 13L29 10V24"/>
+        <circle cx="16" cy="30" r="2.5"/>
+        <circle cx="29" cy="26" r="2.5"/>
+
+    </svg>
+
+    <h4>Живая музыка</h4>
+
+    <p>
+        Живые выступления музыкантов, создающие уютную атмосферу
+        и незабываемые вечера.
+    </p>
+</div>
+
+                <!-- Уютная атмосфера -->
+                <div class="feature-item">
+                    <svg class="feature-icon" viewBox="0 0 44 44" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8 12 L8 36 L36 36 L36 12 Z"/>
+                        <path d="M16 36 L16 28 C16 24 28 24 28 28 L28 36"/>
+                        <path d="M12 8 L12 12"/>
+                        <path d="M32 8 L32 12"/>
+                        <path d="M8 16 L36 16"/>
+                        <circle cx="22" cy="22" r="3"/>
+                    </svg>
+                    <h4>Уютная атмосфера</h4>
+                    <p>Идеальное место для отдыха и встреч</p>
+                </div>
+
+                <!-- С заботой о вас -->
+                <div class="feature-item">
+                    <svg class="feature-icon" viewBox="0 0 44 44" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 8 C16 8 10 14 10 20 C10 30 18 36 22 38 C26 36 34 30 34 20 C34 14 28 8 22 8 Z"/>
+                        <path d="M22 14 L22 22 L26 26"/>
+                        <path d="M16 18 C18 20 20 18 22 16"/>
+                        <path d="M28 18 C26 20 24 18 22 16"/>
+                    </svg>
+                    <h4>С заботой о вас</h4>
+                    <p>Мы создаем комфорт в каждой детали</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+        БРОНИРОВАНИЕ
+    ============================================================ -->
+    <section id="booking">
+        <div class="container">
+            <div class="section-title">
+                Забронировать стол
+                <span class="small">Быстрое подтверждение</span>
+            </div>
+            <div class="section-divider"></div>
+            <div class="booking-form">
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label>Дата визита</label>
+                        <input type="date" id="bookingDate" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Время</label>
+                        <input type="time" id="bookingTime" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Количество персон</label>
+                        <input type="number" id="bookingGuests" placeholder="2" min="1" max="20" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Ваше имя</label>
+                        <input type="text" id="bookingName" placeholder="Имя" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+        БЛОК 2ГИС
+    ============================================================ -->
+    <section class="gis-section" id="gis-block">
+        <div class="container">
+            <div class="gis-card">
+                <svg class="gis-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21C16 17 20 14.2105 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 14.2105 8 17 12 21Z" stroke="#2382C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="10" r="3" stroke="#2382C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="gis-title">Zamandas в 2ГИС</div>
+                <div class="gis-rating">
+                    <span class="score">4.9</span>
+                    <span class="stars">★★★★⯨</span>
+                    <span class="count">(983 отзыва)</span>
+                </div>
+                <a href="https://2gis.kz/kokshetau/firm/70000001000000000" target="_blank" class="btn btn-gis-premium">
+                    Открыть в 2ГИС
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+        КОНТАКТЫ С SVG-ИКОНКАМИ
+    ============================================================ -->
+    <section id="contacts" style="padding-bottom: 100px;">
+        <div class="container">
+            <div class="section-title">
+                Контакты
+                <span class="small">Мы всегда на связи</span>
+            </div>
+            <div class="section-divider"></div>
+            
+            <div class="contacts-list">
+                <!-- Локация -->
+                <div class="contact-item">
+                    <div class="icon-svg-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="info">
+                        <strong>Наш адрес</strong>
+                        г. Кокшетау, ул. Абая, 120
+                    </div>
+                </div>
+
+                <!-- Телефон -->
+                <div class="contact-item">
+                    <div class="icon-svg-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <div class="info">
+                        <strong>Телефон</strong>
+                        +7 (701) 127-42-62
+                    </div>
+                </div>
+
+                <!-- Режим работы (часы) -->
+                <div class="contact-item">
+                    <div class="icon-svg-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <div class="info">
+                        <strong>Режим работы</strong>
+                        Ежедневно: 09:00 – 20:00
+                    </div>
+                </div>
+
+                <!-- Instagram -->
+                <div class="contact-item">
+                    <div class="icon-svg-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <circle cx="12" cy="12" r="5"/>
+                            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+                        </svg>
+                    </div>
+                    <div class="info">
+                        <strong>Instagram</strong>
+                        <a href="https://www.instagram.com/zamandas_cafe" target="_blank" style="color: var(--gold); text-decoration: none;">@zamandas_cafe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+        НИЖНЯЯ НАВИГАЦИЯ
+    ============================================================ -->
+    <nav class="bottom-nav">
+        <a href="#home" class="active">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Главная
+        </a>
+        <a href="#menu">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Меню
+        </a>
+        <a href="#booking" class="btn-nav">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Бронь
+        </a>
+        <a href="#contacts">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Инфо
+        </a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const catButtons = document.querySelectorAll('.category-btn');
+            const menuItems = document.querySelectorAll('.menu-item');
+
+            catButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    catButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const targetCat = btn.getAttribute('data-cat');
+
+                    menuItems.forEach(item => {
+                        if (targetCat === 'all') {
+                            item.style.display = 'flex';
+                        } else {
+                            const itemCat = item.getAttribute('data-category');
+                            if (itemCat === targetCat) {
+                                item.style.display = 'flex';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+
+            const sections = document.querySelectorAll('section, header');
+            const navLinks = document.querySelectorAll('.bottom-nav a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 120) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current) && current !== '') {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
