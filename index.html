@@ -22,6 +22,14 @@
             box-sizing: border-box;
         }
 
+        /* ФИКС: запрещаем горизонтальный скролл */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+        }
+
         :root {
             --bg-dark-1: #120E0D;
             --bg-dark-2: #1A1412;
@@ -63,6 +71,8 @@
             -webkit-font-smoothing: antialiased;
             position: relative;
             letter-spacing: 0.3px;
+            width: 100%;
+            max-width: 100%;
         }
 
         body::before {
@@ -89,6 +99,7 @@
             padding: 0 20px;
             position: relative;
             z-index: 2;
+            width: 100%;
         }
 
         /* ============================================================
@@ -109,12 +120,15 @@
             justify-content: space-between;
             border-bottom: 1px solid var(--border-gold);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 100%;
         }
 
         .top-bar .logo {
             display: flex;
             align-items: center;
             gap: 12px;
+            flex-shrink: 0;
         }
 
         .top-bar .logo-img {
@@ -125,10 +139,44 @@
             object-fit: contain;
             padding: 2px;
             background: var(--bg-dark-2);
+            flex-shrink: 0;
+        }
+
+        .top-bar .actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .top-bar .actions .icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            border-radius: 50%;
+            border: 1px solid var(--border-gold);
+            background: rgba(255, 255, 255, 0.02);
+            transition: var(--transition);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .top-bar .actions .icon-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .top-bar .actions .icon-btn:hover {
+            border-color: var(--gold);
+            background: rgba(209, 161, 92, 0.08);
+            transform: translateY(-2px);
         }
 
         /* ============================================================
-            ЛОГОТИП: ZAMANDAS (крупное) + cafe (под S)
+            ЛОГОТИП
         ============================================================ */
         .logo-text {
             font-family: var(--font-logo);
@@ -141,19 +189,18 @@
             gap: 0px;
             letter-spacing: 1px;
             position: relative;
+            flex-shrink: 0;
         }
 
-        /* ZAMANDAS — основное слово */
         .logo-text .zamandas {
             display: flex;
             align-items: center;
             gap: 0px;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 900;
             letter-spacing: 2px;
         }
 
-        /* Каждая буква ZAMANDAS — уникальная */
         .logo-text .letter {
             display: inline-block;
             transition: var(--transition);
@@ -166,7 +213,6 @@
             text-shadow: 0 0 25px rgba(209, 161, 92, 0.4);
         }
 
-        /* === БУКВЫ ZAMANDAS === */
         .logo-text .letter-z { font-weight: 900; transform: skew(-3deg) scaleY(1.05); letter-spacing: 3px; }
         .logo-text .letter-a1 { font-weight: 800; font-style: italic; transform: rotate(-1.5deg) scaleX(0.95); }
         .logo-text .letter-m { font-weight: 900; transform: scaleY(1.08) scaleX(1.04); letter-spacing: 3px; }
@@ -194,14 +240,11 @@
             opacity: 0.3;
         }
 
-        /* ============================================================
-            CAFE — под буквой S, чуть крупнее
-        ============================================================ */
         .logo-text .cafe-small {
             display: flex;
             align-items: center;
             gap: 1px;
-            font-size: 0.85rem;
+            font-size: 0.7rem;
             color: var(--cream-light);
             opacity: 0.55;
             font-weight: 300;
@@ -209,57 +252,22 @@
             text-transform: lowercase;
             font-family: var(--font-cursive), var(--font-body);
             font-style: italic;
-            margin-left: -6px;
+            margin-left: -4px;
             margin-bottom: 0px;
             transform: rotate(-2deg) scaleY(0.9);
             transition: var(--transition);
             position: relative;
-            top: 8px;
+            top: 6px;
         }
 
-        .logo-text .cafe-small:hover {
-            opacity: 1;
-            color: var(--gold);
-            transform: rotate(-1deg) scaleY(1) scaleX(1.02);
-        }
-
-        /* Каждая буква cafe — своя уникальная */
         .logo-text .cafe-small .letter-c { font-weight: 400; transform: rotate(-2deg); }
         .logo-text .cafe-small .letter-a4 { font-weight: 300; transform: scaleX(1.05) scaleY(0.9); }
         .logo-text .cafe-small .letter-f { font-weight: 400; transform: skew(-2deg) scaleY(1.05); }
         .logo-text .cafe-small .letter-e { font-weight: 300; transform: rotate(2deg) scaleY(0.9); }
 
-        .top-bar .actions {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .top-bar .actions .icon-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            padding: 0;
-            border-radius: 50%;
-            border: 1px solid var(--border-gold);
-            background: rgba(255, 255, 255, 0.02);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .top-bar .actions .icon-btn:hover {
-            border-color: var(--gold);
-            background: rgba(209, 161, 92, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .top-bar .actions .icon-btn svg {
-            width: 20px;
-            height: 20px;
-        }
-
+        /* ============================================================
+            ОСТАЛЬНЫЕ СТИЛИ (сокращены для экономии места)
+        ============================================================ */
         .top-bar .actions .whatsapp-btn {
             border-color: rgba(37, 211, 102, 0.3);
             background: rgba(37, 211, 102, 0.08);
@@ -291,7 +299,7 @@
         .top-bar .actions .gis-btn:hover svg path { fill: #120E0D; }
 
         /* ---- СЕКЦИИ ---- */
-        section { padding: 60px 0; }
+        section { padding: 60px 0; width: 100%; max-width: 100%; overflow: hidden; }
 
         .section-title {
             font-family: var(--font-heading);
@@ -324,9 +332,7 @@
             opacity: 0.3;
         }
 
-        /* ============================================================
-            HERO
-        ============================================================ */
+        /* ---- HERO ---- */
         .hero {
             padding: 130px 16px 60px;
             text-align: center;
@@ -336,6 +342,9 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
         }
 
         .hero .brand-icon-svg {
@@ -459,9 +468,7 @@
             transform: translateY(-2px);
         }
 
-        /* ============================================================
-            КАТЕГОРИИ
-        ============================================================ */
+        /* ---- КАТЕГОРИИ ---- */
         .category-grid {
             display: flex;
             gap: 10px;
@@ -471,6 +478,7 @@
             -ms-overflow-style: none;
             padding: 5px 0 25px 0;
             flex-wrap: nowrap;
+            width: 100%;
         }
 
         .category-grid::-webkit-scrollbar { display: none; }
@@ -509,13 +517,12 @@
             transform: translateY(-1px);
         }
 
-        /* ============================================================
-            КАРТОЧКИ БЛЮД
-        ============================================================ */
+        /* ---- КАРТОЧКИ БЛЮД ---- */
         .menu-grid {
             display: flex;
             flex-direction: column;
             gap: 16px;
+            width: 100%;
         }
 
         .menu-item {
@@ -528,18 +535,13 @@
             transition: var(--transition);
             align-items: center;
             box-shadow: var(--shadow-soft), var(--shadow-inset);
-        }
-
-        .menu-item:hover {
-            border-color: var(--border-gold-hover);
-            transform: translateY(-3px) scale(1.01);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), var(--shadow-inset);
+            width: 100%;
         }
 
         .menu-item .item-img-container {
             position: relative;
-            width: 85px;
-            height: 85px;
+            width: 75px;
+            height: 75px;
             flex-shrink: 0;
         }
 
@@ -551,9 +553,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.2rem;
+            font-size: 2rem;
             border: 1px solid rgba(255,255,255,0.03);
-            object-fit: cover;
         }
 
         .menu-item .item-info {
@@ -567,10 +568,11 @@
             justify-content: space-between;
             gap: 8px;
             margin-bottom: 4px;
+            flex-wrap: wrap;
         }
 
         .menu-item .item-info h4 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--white);
             font-weight: 600;
             font-family: var(--font-body);
@@ -578,10 +580,10 @@
         }
 
         .menu-item .item-info .desc {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--cream-light);
             opacity: 0.5;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -595,11 +597,12 @@
             justify-content: space-between;
             gap: 10px;
             margin-top: 4px;
+            flex-wrap: wrap;
         }
 
         .menu-item .item-price {
             font-family: var(--font-heading);
-            font-size: 1.15rem;
+            font-size: 1rem;
             color: var(--gold);
             font-weight: 700;
             white-space: nowrap;
@@ -607,7 +610,7 @@
         }
 
         .menu-item .item-price .old {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--cream-light);
             opacity: 0.3;
             text-decoration: line-through;
@@ -617,8 +620,8 @@
         }
 
         .item-badge {
-            font-size: 0.55rem;
-            padding: 3px 8px;
+            font-size: 0.5rem;
+            padding: 2px 8px;
             border-radius: 6px;
             font-weight: 700;
             text-transform: uppercase;
@@ -640,12 +643,12 @@
         }
 
         .menu-item .btn-order {
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: var(--radius-pill);
             border: 1px solid var(--gold);
             background: transparent;
             color: var(--gold);
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
@@ -663,23 +666,22 @@
 
         .rating-stars-item {
             color: var(--gold);
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             letter-spacing: 2px;
             margin-bottom: 2px;
         }
 
-        /* ============================================================
-            ПРЕИМУЩЕСТВА С SVG-ИКОНКАМИ
-        ============================================================ */
+        /* ---- ПРЕИМУЩЕСТВА ---- */
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 12px;
+            width: 100%;
         }
 
         .feature-item {
             background: var(--bg-dark-2);
-            padding: 24px 16px;
+            padding: 18px 12px;
             border-radius: var(--radius-md);
             border: 1px solid var(--border-gold);
             text-align: center;
@@ -687,15 +689,10 @@
             position: relative;
         }
 
-        .feature-item:hover {
-            border-color: var(--gold);
-            transform: translateY(-3px);
-        }
-
         .feature-item .feature-icon {
-            width: 44px;
-            height: 44px;
-            margin: 0 auto 10px;
+            width: 36px;
+            height: 36px;
+            margin: 0 auto 8px;
             stroke: var(--gold);
             stroke-width: 1.5;
             fill: none;
@@ -705,42 +702,36 @@
             transition: var(--transition);
         }
 
-        .feature-item:hover .feature-icon {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
         .feature-item h4 {
             font-family: var(--font-heading);
             color: var(--gold);
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         .feature-item p {
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             color: var(--cream-light);
             opacity: 0.5;
             margin-top: 4px;
             letter-spacing: 0.3px;
         }
 
-        /* ============================================================
-            ОТЗЫВЫ
-        ============================================================ */
+        /* ---- ОТЗЫВЫ ---- */
         .review-block {
             text-align: center;
-            padding: 36px 24px;
+            padding: 28px 20px;
             background: linear-gradient(145deg, var(--bg-dark-2), var(--bg-dark-3));
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-gold);
             box-shadow: var(--shadow-soft), var(--shadow-inset);
+            width: 100%;
         }
 
         .review-block .stars {
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: #FFB800;
             letter-spacing: 6px;
             line-height: 1;
@@ -749,7 +740,7 @@
 
         .review-block .score {
             font-family: var(--font-heading);
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--white);
             font-weight: 700;
             line-height: 1;
@@ -758,35 +749,34 @@
         }
 
         .review-block .sub {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--cream-light);
             opacity: 0.5;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             letter-spacing: 0.5px;
         }
 
-        /* ============================================================
-            БРОНИРОВАНИЕ
-        ============================================================ */
+        /* ---- БРОНИРОВАНИЕ ---- */
         .booking-form {
             background: var(--bg-dark-2);
-            padding: 28px 20px;
+            padding: 24px 16px;
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-gold);
             box-shadow: var(--shadow-soft), var(--shadow-inset);
+            width: 100%;
         }
 
         .booking-form .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .booking-form .form-group label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--gold);
             text-transform: uppercase;
             letter-spacing: 2px;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             font-weight: 600;
             font-family: var(--font-body);
         }
@@ -794,60 +784,44 @@
         .booking-form .form-group input,
         .booking-form .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
+            padding: 10px 14px;
             border-radius: var(--radius-sm);
             border: 1px solid var(--border-gold);
             background: rgba(0, 0, 0, 0.2);
             color: var(--white);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-family: var(--font-body);
             transition: var(--transition);
             letter-spacing: 0.5px;
         }
 
-        .booking-form .form-group input:focus,
-        .booking-form .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            background: rgba(0, 0, 0, 0.3);
-            box-shadow: 0 0 10px rgba(209, 161, 92, 0.1);
-        }
-
-        /* ============================================================
-            БЛОК 2ГИС
-        ============================================================ */
+        /* ---- 2ГИС ---- */
         .gis-section {
             padding: 30px 0;
+            width: 100%;
         }
 
         .gis-card {
             background: linear-gradient(135deg, var(--bg-dark-2), var(--bg-dark-3));
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-gold);
-            padding: 32px 24px;
+            padding: 28px 20px;
             text-align: center;
             box-shadow: var(--shadow-soft), var(--shadow-inset);
             position: relative;
             overflow: hidden;
-        }
-
-        .gis-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at top right, rgba(209, 161, 92, 0.05), transparent 60%);
-            pointer-events: none;
+            width: 100%;
         }
 
         .gis-card .gis-icon-svg {
-            width: 44px;
-            height: 44px;
-            margin: 0 auto 16px;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 12px;
         }
 
         .gis-card .gis-title {
             font-family: var(--font-heading);
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: var(--white);
             font-weight: 600;
             letter-spacing: 2px;
@@ -855,14 +829,15 @@
         }
 
         .gis-card .gis-rating {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: var(--cream-light);
-            margin: 8px 0 24px;
+            margin: 6px 0 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             letter-spacing: 0.5px;
+            flex-wrap: wrap;
         }
 
         .gis-card .gis-rating .score {
@@ -877,7 +852,7 @@
 
         .gis-card .gis-rating .count {
             opacity: 0.4;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
 
         .gis-card .btn-gis-premium {
@@ -888,6 +863,13 @@
             box-shadow: 0 6px 20px rgba(35, 130, 196, 0.3), var(--shadow-inset);
             text-transform: uppercase;
             letter-spacing: 2px;
+            width: 100%;
+            padding: 12px 24px;
+            border-radius: var(--radius-pill);
+            display: inline-block;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
         }
 
         .gis-card .btn-gis-premium:hover {
@@ -897,35 +879,30 @@
             box-shadow: 0 8px 25px rgba(35, 130, 196, 0.4), var(--shadow-inset);
         }
 
-        /* ============================================================
-            КОНТАКТЫ С SVG-ИКОНКАМИ
-        ============================================================ */
+        /* ---- КОНТАКТЫ ---- */
         .contacts-list {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
+            width: 100%;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding: 16px 20px;
+            gap: 14px;
+            padding: 14px 16px;
             background: var(--bg-dark-2);
             border-radius: var(--radius-md);
             border: 1px solid var(--border-gold);
             box-shadow: var(--shadow-soft), var(--shadow-inset);
             transition: var(--transition);
-        }
-
-        .contact-item:hover {
-            border-color: var(--border-gold-hover);
-            background: var(--bg-dark-3);
+            width: 100%;
         }
 
         .contact-item .icon-svg-wrapper {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -933,8 +910,8 @@
         }
 
         .contact-item .icon-svg-wrapper svg {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             stroke: var(--gold);
             stroke-width: 1.5;
             fill: none;
@@ -943,25 +920,24 @@
         }
 
         .contact-item .info {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--cream-light);
             opacity: 0.6;
             line-height: 1.4;
             letter-spacing: 0.3px;
+            word-break: break-word;
         }
 
         .contact-item .info strong {
             color: var(--white);
             font-weight: 600;
             display: block;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 1px;
             letter-spacing: 0.5px;
         }
 
-        /* ============================================================
-            НИЖНЯЯ НАВИГАЦИЯ
-        ============================================================ */
+        /* ---- НИЖНЯЯ НАВИГАЦИЯ ---- */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -973,21 +949,23 @@
             border-top: 1px solid var(--border-gold);
             display: flex;
             justify-content: space-around;
-            padding: 8px 10px;
+            padding: 6px 8px;
             z-index: 100;
-            padding-bottom: calc(8px + env(safe-area-inset-bottom));
+            padding-bottom: calc(6px + env(safe-area-inset-bottom));
             box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+            width: 100%;
+            max-width: 100%;
         }
 
         .bottom-nav a {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
-            font-size: 0.55rem;
+            gap: 2px;
+            font-size: 0.5rem;
             color: var(--cream-light);
             opacity: 0.5;
-            padding: 4px 12px;
+            padding: 4px 8px;
             border-radius: var(--radius-md);
             transition: var(--transition);
             text-transform: uppercase;
@@ -997,8 +975,8 @@
         }
 
         .bottom-nav a svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
         }
 
         .bottom-nav a svg path {
@@ -1019,11 +997,11 @@
             background: var(--burgundy);
             opacity: 1 !important;
             border: 1px solid rgba(209, 161, 92, 0.2);
-            padding: 6px 16px;
+            padding: 4px 14px;
             border-radius: var(--radius-pill);
             flex-direction: row;
-            gap: 6px;
-            font-size: 0.6rem;
+            gap: 4px;
+            font-size: 0.5rem;
             font-weight: 600;
             box-shadow: var(--shadow-inset);
         }
@@ -1052,21 +1030,29 @@
                 gap: 16px;
             }
             .menu-item {
-                flex-direction: row;
-                align-items: center;
+                flex-direction: column;
+                align-items: flex-start;
                 padding: 16px;
+            }
+            .menu-item .item-img-container {
+                width: 100%;
+                height: 140px;
+            }
+            .menu-item .item-img {
+                font-size: 3.5rem;
             }
             .features-grid { grid-template-columns: repeat(4, 1fr); }
             .contacts-list {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 16px;
+                gap: 12px;
             }
             .bottom-nav { display: none; }
             body { padding-bottom: 0; }
             .top-bar { padding: 16px 40px; }
             .logo-text .zamandas { font-size: 2.2rem; }
             .logo-text .cafe-small { font-size: 1rem; }
+            .logo-text .cafe-small { top: 8px; }
         }
 
         @media (min-width: 1024px) {
@@ -1079,17 +1065,58 @@
         @media (max-width: 480px) {
             .features-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 12px;
+                gap: 10px;
             }
-            .feature-item { padding: 16px 12px; }
-            .feature-item h4 { font-size: 0.75rem; }
-            .feature-item p { font-size: 0.65rem; }
-            .logo-text .zamandas { font-size: 1.2rem; }
-            .logo-text .cafe-small { font-size: 0.65rem; }
+            .feature-item { padding: 14px 10px; }
+            .feature-item h4 { font-size: 0.7rem; }
+            .feature-item p { font-size: 0.6rem; }
+            .logo-text .zamandas { font-size: 1.1rem; }
+            .logo-text .cafe-small { font-size: 0.55rem; }
             .logo-text { gap: 0px; }
             .feature-item .feature-icon {
-                width: 32px;
-                height: 32px;
+                width: 28px;
+                height: 28px;
+            }
+            .hero h1 { font-size: 2.4rem; }
+            .hero h1 .cafe { font-size: 0.9rem; letter-spacing: 8px; }
+            .hero .tagline { font-size: 0.65rem; letter-spacing: 5px; }
+            .hero .subtitle { font-size: 1.1rem; }
+            .top-bar .actions .icon-btn {
+                width: 28px;
+                height: 28px;
+            }
+            .top-bar .actions .icon-btn svg {
+                width: 16px;
+                height: 16px;
+            }
+            .menu-item .item-img-container {
+                width: 60px;
+                height: 60px;
+            }
+            .menu-item .item-img {
+                font-size: 1.6rem;
+            }
+            .menu-item .item-info h4 {
+                font-size: 0.8rem;
+            }
+            .menu-item .item-price {
+                font-size: 0.9rem;
+            }
+            .menu-item .btn-order {
+                font-size: 0.5rem;
+                padding: 4px 10px;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .review-block .score {
+                font-size: 2.2rem;
+            }
+            .review-block .stars {
+                font-size: 1.6rem;
+            }
+            .gis-card .gis-title {
+                font-size: 1rem;
             }
         }
     </style>
@@ -1122,7 +1149,7 @@
             </div>
         </div>
         <div class="actions">
-            <a href="https://www.instagram.com/zamandas_cafe" target="_blank" class="icon-btn instagram-btn" title="Instagram">
+            <a href="https://www.instagram.com/zamandas.cafe?igsh=ZnJ2OG43OXo1NzVy" target="_blank" class="icon-btn instagram-btn" title="Instagram">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <rect x="2" y="2" width="20" height="20" rx="4" stroke="#E1306C" stroke-width="2" fill="none"/>
                     <circle cx="12" cy="12" r="5" stroke="#E1306C" stroke-width="2" fill="none"/>
@@ -1134,7 +1161,7 @@
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.413 9.863-9.843.002-2.63-1.023-5.101-2.886-6.968C16.528 1.927 14.061.903 11.51.903c-5.44 0-9.866 4.414-9.87 9.846-.001 1.698.443 3.355 1.288 4.828l-1.015 3.703 3.812-.99c1.451.792 2.992 1.206 4.332 1.206z" fill="#25D366"/>
                 </svg>
             </a>
-            <a href="https://2gis.kz/kokshetau/firm/70000001000000000" target="_blank" class="icon-btn gis-btn" title="2ГИС">
+            <a href="https://2gis.kz/kokshetau/geo/70000001102577921" target="_blank" class="icon-btn gis-btn" title="2ГИС">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 21C16 17 20 14.2105 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 14.2105 8 17 12 21Z" stroke="#2382C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <circle cx="12" cy="10" r="3" stroke="#2382C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1256,7 +1283,7 @@
     </section>
 
     <!-- ============================================================
-        ПРЕИМУЩЕСТВА С SVG-ИКОНКАМИ
+        ПРЕИМУЩЕСТВА
     ============================================================ -->
     <section id="features">
         <div class="container">
@@ -1267,7 +1294,6 @@
             <div class="section-divider"></div>
 
             <div class="features-grid">
-                <!-- Авторские напитки -->
                 <div class="feature-item">
                     <svg class="feature-icon" viewBox="0 0 44 44" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M10 14 L34 14 L30 32 C29 37 26 38 22 38 C18 38 15 37 14 32 L10 14 Z"/>
@@ -1281,25 +1307,16 @@
                 </div>
 
                 <div class="feature-item">
-    <svg class="feature-icon" viewBox="0 0 44 44" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg class="feature-icon" viewBox="0 0 44 44" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13V28"/>
+                        <path d="M18 13L29 10V24"/>
+                        <circle cx="16" cy="30" r="2.5"/>
+                        <circle cx="29" cy="26" r="2.5"/>
+                    </svg>
+                    <h4>Живая музыка</h4>
+                    <p>Живые выступления музыкантов</p>
+                </div>
 
-        <!-- Музыкальная нота -->
-        <path d="M18 13V28"/>
-        <path d="M18 13L29 10V24"/>
-        <circle cx="16" cy="30" r="2.5"/>
-        <circle cx="29" cy="26" r="2.5"/>
-
-    </svg>
-
-    <h4>Живая музыка</h4>
-
-    <p>
-        Живые выступления музыкантов, создающие уютную атмосферу
-        и незабываемые вечера.
-    </p>
-</div>
-
-                <!-- Уютная атмосфера -->
                 <div class="feature-item">
                     <svg class="feature-icon" viewBox="0 0 44 44" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M8 12 L8 36 L36 36 L36 12 Z"/>
@@ -1313,7 +1330,6 @@
                     <p>Идеальное место для отдыха и встреч</p>
                 </div>
 
-                <!-- С заботой о вас -->
                 <div class="feature-item">
                     <svg class="feature-icon" viewBox="0 0 44 44" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M22 8 C16 8 10 14 10 20 C10 30 18 36 22 38 C26 36 34 30 34 20 C34 14 28 8 22 8 Z"/>
@@ -1375,10 +1391,10 @@
                 <div class="gis-title">Zamandas в 2ГИС</div>
                 <div class="gis-rating">
                     <span class="score">4.9</span>
-                    <span class="stars">★★★★⯨</span>
+                    <span class="stars">★★★★★</span>
                     <span class="count">(983 отзыва)</span>
                 </div>
-                <a href="https://2gis.kz/kokshetau/firm/70000001000000000" target="_blank" class="btn btn-gis-premium">
+                <a href="https://2gis.kz/kokshetau/geo/70000001102577921" target="_blank" class="btn btn-gis-premium">
                     Открыть в 2ГИС
                 </a>
             </div>
@@ -1386,7 +1402,7 @@
     </section>
 
     <!-- ============================================================
-        КОНТАКТЫ С SVG-ИКОНКАМИ
+        КОНТАКТЫ
     ============================================================ -->
     <section id="contacts" style="padding-bottom: 100px;">
         <div class="container">
@@ -1397,7 +1413,6 @@
             <div class="section-divider"></div>
             
             <div class="contacts-list">
-                <!-- Локация -->
                 <div class="contact-item">
                     <div class="icon-svg-wrapper">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1407,11 +1422,10 @@
                     </div>
                     <div class="info">
                         <strong>Наш адрес</strong>
-                        г. Кокшетау, ул. Абая, 120
+                        г. Кокшетау, ул. Малика Габдулина, 30а
                     </div>
                 </div>
 
-                <!-- Телефон -->
                 <div class="contact-item">
                     <div class="icon-svg-wrapper">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1424,7 +1438,6 @@
                     </div>
                 </div>
 
-                <!-- Режим работы (часы) -->
                 <div class="contact-item">
                     <div class="icon-svg-wrapper">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1434,11 +1447,10 @@
                     </div>
                     <div class="info">
                         <strong>Режим работы</strong>
-                        Ежедневно: 09:00 – 20:00
+                        Ежедневно: 11:00 – 01:00
                     </div>
                 </div>
 
-                <!-- Instagram -->
                 <div class="contact-item">
                     <div class="icon-svg-wrapper">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1449,7 +1461,7 @@
                     </div>
                     <div class="info">
                         <strong>Instagram</strong>
-                        <a href="https://www.instagram.com/zamandas_cafe" target="_blank" style="color: var(--gold); text-decoration: none;">@zamandas_cafe</a>
+                        <a href="https://www.instagram.com/zamandas.cafe?igsh=ZnJ2OG43OXo1NzVy" target="_blank" style="color: var(--gold); text-decoration: none;">@zamandas.cafe</a>
                     </div>
                 </div>
             </div>
