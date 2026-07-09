@@ -22,7 +22,6 @@
             box-sizing: border-box;
         }
 
-        /* ФИКС: запрещаем горизонтальный скролл */
         html, body {
             overflow-x: hidden;
             width: 100%;
@@ -103,7 +102,7 @@
         }
 
         /* ============================================================
-            ВЕРХНЯЯ ПАНЕЛЬ
+            ВЕРХНЯЯ ПАНЕЛЬ — БЕЗ РАМКИ
         ============================================================ */
         .top-bar {
             position: fixed;
@@ -131,15 +130,16 @@
             flex-shrink: 0;
         }
 
+        /* Логотип без рамки */
         .top-bar .logo-img {
             width: 36px;
             height: 36px;
-            border-radius: 50%;
-            border: 1.5px solid var(--gold);
             object-fit: contain;
-            padding: 2px;
-            background: var(--bg-dark-2);
             flex-shrink: 0;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
         }
 
         .top-bar .actions {
@@ -174,6 +174,36 @@
             background: rgba(209, 161, 92, 0.08);
             transform: translateY(-2px);
         }
+
+        .top-bar .actions .whatsapp-btn {
+            border-color: rgba(37, 211, 102, 0.3);
+            background: rgba(37, 211, 102, 0.08);
+        }
+        .top-bar .actions .whatsapp-btn:hover {
+            background: #25D366;
+            border-color: #25D366;
+        }
+        .top-bar .actions .whatsapp-btn:hover svg path { fill: #120E0D; }
+
+        .top-bar .actions .instagram-btn {
+            border-color: rgba(225, 48, 108, 0.3);
+            background: rgba(225, 48, 108, 0.08);
+        }
+        .top-bar .actions .instagram-btn:hover {
+            background: #E1306C;
+            border-color: #E1306C;
+        }
+        .top-bar .actions .instagram-btn:hover svg path { fill: #120E0D; }
+
+        .top-bar .actions .gis-btn {
+            border-color: rgba(35, 130, 196, 0.3);
+            background: rgba(35, 130, 196, 0.08);
+        }
+        .top-bar .actions .gis-btn:hover {
+            background: #2382C4;
+            border-color: #2382C4;
+        }
+        .top-bar .actions .gis-btn:hover svg path { fill: #120E0D; }
 
         /* ============================================================
             ЛОГОТИП
@@ -265,39 +295,6 @@
         .logo-text .cafe-small .letter-f { font-weight: 400; transform: skew(-2deg) scaleY(1.05); }
         .logo-text .cafe-small .letter-e { font-weight: 300; transform: rotate(2deg) scaleY(0.9); }
 
-        /* ============================================================
-            ОСТАЛЬНЫЕ СТИЛИ (сокращены для экономии места)
-        ============================================================ */
-        .top-bar .actions .whatsapp-btn {
-            border-color: rgba(37, 211, 102, 0.3);
-            background: rgba(37, 211, 102, 0.08);
-        }
-        .top-bar .actions .whatsapp-btn:hover {
-            background: #25D366;
-            border-color: #25D366;
-        }
-        .top-bar .actions .whatsapp-btn:hover svg path { fill: #120E0D; }
-
-        .top-bar .actions .instagram-btn {
-            border-color: rgba(225, 48, 108, 0.3);
-            background: rgba(225, 48, 108, 0.08);
-        }
-        .top-bar .actions .instagram-btn:hover {
-            background: #E1306C;
-            border-color: #E1306C;
-        }
-        .top-bar .actions .instagram-btn:hover svg path { fill: #120E0D; }
-
-        .top-bar .actions .gis-btn {
-            border-color: rgba(35, 130, 196, 0.3);
-            background: rgba(35, 130, 196, 0.08);
-        }
-        .top-bar .actions .gis-btn:hover {
-            background: #2382C4;
-            border-color: #2382C4;
-        }
-        .top-bar .actions .gis-btn:hover svg path { fill: #120E0D; }
-
         /* ---- СЕКЦИИ ---- */
         section { padding: 60px 0; width: 100%; max-width: 100%; overflow: hidden; }
 
@@ -347,11 +344,40 @@
             overflow: hidden;
         }
 
-        .hero .brand-icon-svg {
-            width: 64px;
-            height: 64px;
+        /* ============================================================
+            ТРИ УВЕЛИЧЕННЫЕ ЛИНИИ (ПАР) — БЕЗ РАМКИ
+        ============================================================ */
+        .hero-steam {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 14px;
+            height: 80px;
             margin-bottom: 20px;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+            opacity: 0.5;
+        }
+
+        .hero-steam .steam-line {
+            width: 3.5px;
+            background: linear-gradient(to top, var(--gold), transparent);
+            border-radius: 3px;
+            border: none;
+            box-shadow: none;
+        }
+
+        .hero-steam .steam-line:nth-child(1) {
+            height: 45px;
+            transform: rotate(-6deg);
+        }
+
+        .hero-steam .steam-line:nth-child(2) {
+            height: 65px;
+            transform: rotate(0deg);
+        }
+
+        .hero-steam .steam-line:nth-child(3) {
+            height: 52px;
+            transform: rotate(6deg);
         }
 
         .hero h1 {
@@ -1053,6 +1079,11 @@
             .logo-text .zamandas { font-size: 2.2rem; }
             .logo-text .cafe-small { font-size: 1rem; }
             .logo-text .cafe-small { top: 8px; }
+            .hero-steam { height: 100px; gap: 18px; }
+            .hero-steam .steam-line { width: 4.5px; }
+            .hero-steam .steam-line:nth-child(1) { height: 55px; }
+            .hero-steam .steam-line:nth-child(2) { height: 80px; }
+            .hero-steam .steam-line:nth-child(3) { height: 65px; }
         }
 
         @media (min-width: 1024px) {
@@ -1118,13 +1149,18 @@
             .gis-card .gis-title {
                 font-size: 1rem;
             }
+            .hero-steam { height: 50px; gap: 8px; }
+            .hero-steam .steam-line { width: 2.5px; }
+            .hero-steam .steam-line:nth-child(1) { height: 28px; }
+            .hero-steam .steam-line:nth-child(2) { height: 40px; }
+            .hero-steam .steam-line:nth-child(3) { height: 32px; }
         }
     </style>
 </head>
 <body>
 
     <!-- ============================================================
-        ВЕРХНЯЯ ПАНЕЛЬ
+        ВЕРХНЯЯ ПАНЕЛЬ — БЕЗ РАМКИ
     ============================================================ -->
     <header class="top-bar">
         <div class="logo">
@@ -1171,17 +1207,16 @@
     </header>
 
     <!-- ============================================================
-        HERO
+        HERO — С УВЕЛИЧЕННЫМИ ПОЛОСКАМИ (ПАР)
     ============================================================ -->
     <section class="hero" id="home">
-        <svg class="brand-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 15C3.79086 15 2 13.2091 2 11C2 8.79086 3.79086 7 6 7H16C17.1046 7 18 7.89543 18 9V13C18 14.1046 17.1046 15 16 15H6Z" stroke="#D1A15C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M18 9H19C20.6569 9 22 10.3431 22 12C22 13.6569 20.6569 15 19 15H18" stroke="#D1A15C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M6 3V4" stroke="#D1A15C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M10 3V4" stroke="#D1A15C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M14 3V4" stroke="#D1A15C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M3 21H19" stroke="#D1A15C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <!-- Три увеличенные линии пара (без рамки) -->
+        <div class="hero-steam">
+            <span class="steam-line"></span>
+            <span class="steam-line"></span>
+            <span class="steam-line"></span>
+        </div>
+
         <h1>
             ZAMANDAS
             <span class="cafe">cafe</span>
