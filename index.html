@@ -102,7 +102,7 @@
         }
 
         /* ============================================================
-            ВЕРХНЯЯ ПАНЕЛЬ — БЕЗ РАМКИ
+            ВЕРХНЯЯ ПАНЕЛЬ
         ============================================================ */
         .top-bar {
             position: fixed;
@@ -130,16 +130,15 @@
             flex-shrink: 0;
         }
 
-        /* Логотип без рамки */
         .top-bar .logo-img {
             width: 36px;
             height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid var(--gold);
             object-fit: contain;
+            padding: 2px;
+            background: var(--bg-dark-2);
             flex-shrink: 0;
-            border: none;
-            border-radius: 0;
-            padding: 0;
-            background: transparent;
         }
 
         .top-bar .actions {
@@ -345,39 +344,17 @@
         }
 
         /* ============================================================
-            ТРИ УВЕЛИЧЕННЫЕ ЛИНИИ (ПАР) — БЕЗ РАМКИ
+            ИЗОБРАЖЕНИЕ В HERO (без рамки и круга)
         ============================================================ */
-        .hero-steam {
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            gap: 14px;
+        .hero-image {
+            width: 80px;
             height: 80px;
             margin-bottom: 20px;
-            opacity: 0.5;
-        }
-
-        .hero-steam .steam-line {
-            width: 3.5px;
-            background: linear-gradient(to top, var(--gold), transparent);
-            border-radius: 3px;
+            object-fit: cover;
+            opacity: 0.85;
+            border-radius: 0;
             border: none;
             box-shadow: none;
-        }
-
-        .hero-steam .steam-line:nth-child(1) {
-            height: 45px;
-            transform: rotate(-6deg);
-        }
-
-        .hero-steam .steam-line:nth-child(2) {
-            height: 65px;
-            transform: rotate(0deg);
-        }
-
-        .hero-steam .steam-line:nth-child(3) {
-            height: 52px;
-            transform: rotate(6deg);
         }
 
         .hero h1 {
@@ -1079,11 +1056,10 @@
             .logo-text .zamandas { font-size: 2.2rem; }
             .logo-text .cafe-small { font-size: 1rem; }
             .logo-text .cafe-small { top: 8px; }
-            .hero-steam { height: 100px; gap: 18px; }
-            .hero-steam .steam-line { width: 4.5px; }
-            .hero-steam .steam-line:nth-child(1) { height: 55px; }
-            .hero-steam .steam-line:nth-child(2) { height: 80px; }
-            .hero-steam .steam-line:nth-child(3) { height: 65px; }
+            .hero-image {
+                width: 120px;
+                height: 120px;
+            }
         }
 
         @media (min-width: 1024px) {
@@ -1091,6 +1067,10 @@
             .hero { padding: 150px 32px 80px; }
             .hero h1 { font-size: 5.5rem; }
             .menu-grid { grid-template-columns: repeat(3, 1fr); }
+            .hero-image {
+                width: 150px;
+                height: 150px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1149,18 +1129,17 @@
             .gis-card .gis-title {
                 font-size: 1rem;
             }
-            .hero-steam { height: 50px; gap: 8px; }
-            .hero-steam .steam-line { width: 2.5px; }
-            .hero-steam .steam-line:nth-child(1) { height: 28px; }
-            .hero-steam .steam-line:nth-child(2) { height: 40px; }
-            .hero-steam .steam-line:nth-child(3) { height: 32px; }
+            .hero-image {
+                width: 60px;
+                height: 60px;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- ============================================================
-        ВЕРХНЯЯ ПАНЕЛЬ — БЕЗ РАМКИ
+        ВЕРХНЯЯ ПАНЕЛЬ
     ============================================================ -->
     <header class="top-bar">
         <div class="logo">
@@ -1207,15 +1186,10 @@
     </header>
 
     <!-- ============================================================
-        HERO — С УВЕЛИЧЕННЫМИ ПОЛОСКАМИ (ПАР)
+        HERO — С ВАШИМ ИЗОБРАЖЕНИЕМ (БЕЗ РАМКИ И КРУГА)
     ============================================================ -->
     <section class="hero" id="home">
-        <!-- Три увеличенные линии пара (без рамки) -->
-        <div class="hero-steam">
-            <span class="steam-line"></span>
-            <span class="steam-line"></span>
-            <span class="steam-line"></span>
-        </div>
+        <img class="hero-image" src="https://i.ibb.co.com/dwmCXdrS/Chat-GPT-Image-9-2026-18-18-28.png" alt="Chat-GPT-Image-9-2026-18-18-28" alt="Zamandas" />
 
         <h1>
             ZAMANDAS
