@@ -22,11 +22,44 @@
             box-sizing: border-box;
         }
 
+        /* ============================================================
+            ЗАПРЕЩАЕМ СКРОЛЛ ВВЕРХ ЗА ПРЕДЕЛЫ HERO
+        ============================================================ */
         html, body {
             overflow-x: hidden;
+            overflow-y: auto;
             width: 100%;
             max-width: 100%;
             position: relative;
+            height: 100%;
+        }
+
+        /* Hero занимает ровно 100vh — нельзя прокрутить выше */
+        .hero {
+            min-height: 100vh;
+            height: 100vh;
+            max-height: 100vh;
+            padding: 130px 16px 60px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        /* Все остальные секции — обычная прокрутка */
+        section:not(.hero) {
+            padding: 60px 0;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
         }
 
         :root {
@@ -53,6 +86,7 @@
             --font-body: 'Orbitron', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-accent: 'Playfair Display', 'Georgia', serif;
             --font-cursive: 'Great Vibes', cursive;
+            --whatsapp: #25D366;
         }
 
         html {
@@ -67,11 +101,13 @@
             color: var(--cream-light);
             line-height: 1.6;
             overflow-x: hidden;
+            overflow-y: auto;
             -webkit-font-smoothing: antialiased;
             position: relative;
             letter-spacing: 0.3px;
             width: 100%;
             max-width: 100%;
+            height: 100%;
         }
 
         body::before {
@@ -295,7 +331,7 @@
         .logo-text .cafe-small .letter-e { font-weight: 300; transform: rotate(2deg) scaleY(0.9); }
 
         /* ---- СЕКЦИИ ---- */
-        section { padding: 60px 0; width: 100%; max-width: 100%; overflow: hidden; }
+        section:not(.hero) { padding: 60px 0; width: 100%; max-width: 100%; overflow: hidden; position: relative; flex-shrink: 0; }
 
         .section-title {
             font-family: var(--font-heading);
@@ -330,9 +366,11 @@
 
         /* ---- HERO ---- */
         .hero {
+            min-height: 100vh;
+            height: 100vh;
+            max-height: 100vh;
             padding: 130px 16px 60px;
             text-align: center;
-            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -341,20 +379,19 @@
             width: 100%;
             max-width: 100%;
             overflow: hidden;
+            flex-shrink: 0;
         }
 
-        /* ============================================================
-            ИЗОБРАЖЕНИЕ В HERO (без рамки и круга)
-        ============================================================ */
         .hero-image {
-            width: 80px;
-            height: 80px;
+            width: 140px;
+            height: auto;
             margin-bottom: 20px;
-            object-fit: cover;
-            opacity: 0.85;
+            object-fit: contain;
+            opacity: 0.7;
             border-radius: 0;
             border: none;
             box-shadow: none;
+            display: block;
         }
 
         .hero h1 {
@@ -469,6 +506,17 @@
             border-color: var(--gold);
             background: rgba(209, 161, 92, 0.08);
             transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: var(--whatsapp) !important;
+            border-color: var(--whatsapp) !important;
+            color: var(--white) !important;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1DA851 !important;
+            border-color: #1DA851 !important;
         }
 
         /* ---- КАТЕГОРИИ ---- */
@@ -759,7 +807,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* ---- БРОНИРОВАНИЕ ---- */
+        /* ---- БРОНИРОВАНИЕ (WhatsApp) ---- */
         .booking-form {
             background: var(--bg-dark-2);
             padding: 24px 16px;
@@ -796,6 +844,14 @@
             font-family: var(--font-body);
             transition: var(--transition);
             letter-spacing: 0.5px;
+        }
+
+        .booking-form .form-group input:focus,
+        .booking-form .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 10px rgba(209, 161, 92, 0.1);
         }
 
         /* ---- 2ГИС ---- */
@@ -1056,10 +1112,7 @@
             .logo-text .zamandas { font-size: 2.2rem; }
             .logo-text .cafe-small { font-size: 1rem; }
             .logo-text .cafe-small { top: 8px; }
-            .hero-image {
-                width: 120px;
-                height: 120px;
-            }
+            .hero-image { width: 200px; }
         }
 
         @media (min-width: 1024px) {
@@ -1067,10 +1120,7 @@
             .hero { padding: 150px 32px 80px; }
             .hero h1 { font-size: 5.5rem; }
             .menu-grid { grid-template-columns: repeat(3, 1fr); }
-            .hero-image {
-                width: 150px;
-                height: 150px;
-            }
+            .hero-image { width: 250px; }
         }
 
         @media (max-width: 480px) {
@@ -1129,10 +1179,7 @@
             .gis-card .gis-title {
                 font-size: 1rem;
             }
-            .hero-image {
-                width: 60px;
-                height: 60px;
-            }
+            .hero-image { width: 100px; }
         }
     </style>
 </head>
@@ -1171,7 +1218,7 @@
                     <circle cx="18" cy="6" r="1" fill="#E1306C"/>
                 </svg>
             </a>
-            <a href="https://wa.me/77011274262" target="_blank" class="icon-btn whatsapp-btn" title="Написать в WhatsApp">
+            <a href="https://wa.me/77051009603" target="_blank" class="icon-btn whatsapp-btn" title="Написать в WhatsApp">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.413 9.863-9.843.002-2.63-1.023-5.101-2.886-6.968C16.528 1.927 14.061.903 11.51.903c-5.44 0-9.866 4.414-9.87 9.846-.001 1.698.443 3.355 1.288 4.828l-1.015 3.703 3.812-.99c1.451.792 2.992 1.206 4.332 1.206z" fill="#25D366"/>
                 </svg>
@@ -1186,10 +1233,10 @@
     </header>
 
     <!-- ============================================================
-        HERO — С ВАШИМ ИЗОБРАЖЕНИЕМ (БЕЗ РАМКИ И КРУГА)
+        HERO — ТОЧНО 100vh, НЕЛЬЗЯ ПРОКРУТИТЬ ВВЕРХ
     ============================================================ -->
     <section class="hero" id="home">
-        <img class="hero-image" src="https://i.ibb.co.com/dwmCXdrS/Chat-GPT-Image-9-2026-18-18-28.png" alt="Chat-GPT-Image-9-2026-18-18-28" alt="Zamandas" />
+        <img class="hero-image" src="https://i.ibb.co.com/dwmCXdrS/Chat-GPT-Image-9-2026-18-18-28.png" alt="Zamandas" />
 
         <h1>
             ZAMANDAS
@@ -1354,7 +1401,7 @@
     </section>
 
     <!-- ============================================================
-        БРОНИРОВАНИЕ
+        БРОНИРОВАНИЕ (WhatsApp)
     ============================================================ -->
     <section id="booking">
         <div class="container">
@@ -1381,8 +1428,13 @@
                         <label>Ваше имя</label>
                         <input type="text" id="bookingName" placeholder="Имя" required />
                     </div>
-                    <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Отправить заявку</button>
+                    <button type="submit" class="btn btn-whatsapp" style="margin-top: 10px;">📱 Отправить в WhatsApp</button>
                 </form>
+                <div id="bookingSuccess" style="display:none;text-align:center;padding:16px 0;">
+                    <p style="font-size:2rem;">✅</p>
+                    <p style="font-family:var(--font-heading);color:var(--gold);font-size:1.2rem;">Заявка отправлена!</p>
+                    <p style="color:var(--gray);font-size:0.85rem;">Скоро с вами свяжутся</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1512,6 +1564,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // ---- КАТЕГОРИИ ----
             const catButtons = document.querySelectorAll('.category-btn');
             const menuItems = document.querySelectorAll('.menu-item');
 
@@ -1537,6 +1590,34 @@
                 });
             });
 
+            // ---- БРОНИРОВАНИЕ (WhatsApp) ----
+            document.getElementById('bookingForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const date = document.getElementById('bookingDate').value;
+                const time = document.getElementById('bookingTime').value;
+                const guests = document.getElementById('bookingGuests').value;
+                const name = document.getElementById('bookingName').value;
+
+                const message = 
+                    `Здравствуйте! Хочу забронировать столик в Zamandas Cafe%0A%0A` +
+                    `Дата визита: ${date}%0A` +
+                    `Время: ${time}%0A` +
+                    `Количество персон: ${guests}%0A` +
+                    `Ваше имя: ${name}`;
+
+                window.open(`https://wa.me/77051009603?text=${message}`, '_blank');
+
+                this.style.display = 'none';
+                document.getElementById('bookingSuccess').style.display = 'block';
+                setTimeout(() => {
+                    this.reset();
+                    this.style.display = 'block';
+                    document.getElementById('bookingSuccess').style.display = 'none';
+                }, 3000);
+            });
+
+            // ---- ПОДСВЕТКА АКТИВНОЙ ВКЛАДКИ ----
             const sections = document.querySelectorAll('section, header');
             const navLinks = document.querySelectorAll('.bottom-nav a');
 
