@@ -82,6 +82,8 @@
             --font-accent: 'Playfair Display', 'Georgia', serif;
             --font-cursive: 'Great Vibes', cursive;
             --whatsapp: #25D366;
+            --orange: #E67E22;
+            --gis-blue: #2382C4;
         }
 
         html {
@@ -763,89 +765,264 @@
             box-shadow: 0 0 10px rgba(209, 161, 92, 0.1);
         }
 
-        /* ---- 2ГИС ---- */
-        .gis-section {
-            padding: 24px 0;
-            width: 100%;
-        }
-
-        .gis-card {
-            background: linear-gradient(135deg, var(--bg-dark-2), var(--bg-dark-3));
+        /* ============================================================
+            НОВЫЙ БЛОК: КАК НАС НАЙТИ (СТИЛЬ 2ГИС)
+        ============================================================ */
+        .find-us-section {
+            background: var(--bg-dark-2);
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-gold);
-            padding: 24px 16px;
-            text-align: center;
+            padding: 32px 24px 20px;
             box-shadow: var(--shadow-soft), var(--shadow-inset);
+            margin: 0 auto;
+            max-width: 480px;
+            width: 100%;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            width: 100%;
         }
 
-        .gis-card .gis-icon-svg {
-            width: 36px;
-            height: 36px;
-            margin: 0 auto 10px;
+        .find-us-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gis-blue), #4a9fd8, var(--gis-blue));
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
         }
 
-        .gis-card .gis-title {
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            color: var(--white);
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
 
-        .gis-card .gis-rating {
-            font-size: 0.75rem;
-            color: var(--cream-light);
-            margin: 6px 0 16px;
+        .find-us-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .find-us-header .title-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            letter-spacing: 0.5px;
-            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 4px;
         }
 
-        .gis-card .gis-rating .score {
-            font-weight: 700;
-            color: var(--white);
+        .find-us-header .title-wrapper .gis-icon {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            color: var(--gis-blue);
         }
 
-        .gis-card .gis-rating .stars {
-            color: #FFB800;
-            letter-spacing: 3px;
-        }
-
-        .gis-card .gis-rating .count {
-            opacity: 0.4;
-            font-size: 0.7rem;
-        }
-
-        .gis-card .btn-gis-premium {
-            background: #2382C4;
-            border-color: #2382C4;
+        .find-us-header h2 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
             color: var(--white);
             font-weight: 600;
-            box-shadow: 0 6px 20px rgba(35, 130, 196, 0.3), var(--shadow-inset);
-            text-transform: uppercase;
             letter-spacing: 2px;
-            width: 100%;
-            padding: 10px 20px;
-            border-radius: var(--radius-pill);
-            display: inline-block;
-            text-align: center;
-            transition: var(--transition);
-            cursor: pointer;
-            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin: 0;
         }
 
-        .gis-card .btn-gis-premium:hover {
-            background: #2A96DC;
-            border-color: #2A96DC;
+        .find-us-header .sub-title {
+            font-size: 0.65rem;
+            color: var(--cream-light);
+            opacity: 0.4;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .find-us-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .map-wrapper-find {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-gold);
+            background: #1a1a1a;
+            min-height: 220px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        #zamandas-map {
+            width: 100%;
+            height: 100%;
+            min-height: 220px;
+            background: #1a1a1a;
+        }
+
+        .map-wrapper-find .map-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(18, 14, 13, 0.1);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .map-wrapper-find:hover .map-overlay {
+            opacity: 1;
+        }
+
+        .map-wrapper-find .map-overlay span {
+            background: rgba(18, 14, 13, 0.75);
+            backdrop-filter: blur(6px);
+            padding: 8px 22px;
+            border-radius: var(--radius-pill);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        /* Информационная панель — минималистично */
+        .info-panel-find {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 4px 0;
+        }
+
+        .info-panel-find .address-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: var(--cream-light);
+            opacity: 0.7;
+            line-height: 1.4;
+        }
+
+        .info-panel-find .address-line .addr-icon {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            color: var(--gis-blue);
+        }
+
+        .info-panel-find .address-line .addr-text {
+            font-style: normal;
+        }
+
+        .info-panel-find .address-line .addr-text .street {
+            display: block;
+            font-weight: 500;
+            color: var(--white);
+            opacity: 1;
+        }
+
+        .info-panel-find .address-line .addr-text .city {
+            font-size: 0.7rem;
+            opacity: 0.5;
+        }
+
+        .info-divider-find {
+            height: 1px;
+            background: var(--border-gold);
+            margin: 4px 0;
+        }
+
+        .info-panel-find .info-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.75rem;
+            color: var(--cream-light);
+            opacity: 0.6;
+        }
+
+        .info-panel-find .info-row .row-icon {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            color: var(--gis-blue);
+        }
+
+        .info-panel-find .info-row .dot-open {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            margin-right: 4px;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { opacity: 0.6; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.6; transform: scale(0.95); }
+        }
+
+        .info-panel-find .actions-find {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .btn-gis-find {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--gis-blue);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 12px 20px;
+            border-radius: var(--radius-pill);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 14px rgba(35, 130, 196, 0.25);
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-gis-find:hover {
+            background: #1a6fa8;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(35, 130, 196, 0.4), var(--shadow-inset);
+            box-shadow: 0 8px 24px rgba(35, 130, 196, 0.35);
+        }
+
+        .btn-gis-find .btn-icon {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .find-us-hint {
+            font-size: 0.55rem;
+            color: var(--cream-light);
+            opacity: 0.25;
+            text-align: center;
+            margin-top: 16px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-top: 1px solid var(--border-gold);
+            padding-top: 14px;
         }
 
         /* ---- КОНТАКТЫ ---- */
@@ -907,13 +1084,6 @@
         }
 
         /* ============================================================
-            НИЖНЯЯ НАВИГАЦИЯ — УДАЛЕНА
-        ============================================================ */
-        .bottom-nav {
-            display: none !important;
-        }
-
-        /* ============================================================
             АДАПТИВНОСТЬ
         ============================================================ */
         @media (min-width: 768px) {
@@ -942,6 +1112,12 @@
             .logo-text .cafe-small { top: 8px; }
             .hero-image { width: 200px; }
             .hero { padding: 150px 32px 80px; }
+            .find-us-section { max-width: 720px; padding: 40px 32px 24px; }
+            .find-us-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+            #zamandas-map { min-height: 280px; }
+            .map-wrapper-find { min-height: 280px; }
+            .find-us-header h2 { font-size: 1.4rem; }
+            .info-panel-find .address-line { font-size: 0.9rem; }
         }
 
         @media (min-width: 1024px) {
@@ -950,6 +1126,39 @@
             .menu-grid { grid-template-columns: repeat(3, 1fr); }
             .hero-image { width: 250px; }
             .logo-text .cafe-small { font-size: 1.6rem; }
+            .find-us-section { max-width: 980px; }
+            #zamandas-map { min-height: 340px; }
+            .map-wrapper-find { min-height: 340px; }
+        }
+
+        @media (max-width: 640px) {
+            .find-us-section {
+                padding: 24px 16px 16px;
+            }
+            .find-us-header .title-wrapper .gis-icon {
+                width: 22px;
+                height: 22px;
+            }
+            .find-us-header h2 {
+                font-size: 1rem;
+            }
+            .find-us-header .sub-title {
+                font-size: 0.55rem;
+                letter-spacing: 3px;
+            }
+            #zamandas-map {
+                min-height: 180px;
+            }
+            .map-wrapper-find {
+                min-height: 180px;
+            }
+            .info-panel-find .address-line {
+                font-size: 0.7rem;
+            }
+            .btn-gis-find {
+                font-size: 0.65rem;
+                padding: 10px 16px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -991,11 +1200,21 @@
             .review-block .stars {
                 font-size: 1.4rem;
             }
-            .gis-card .gis-title {
-                font-size: 0.95rem;
-            }
             .hero-image { width: 80px; }
             .top-bar .logo-img { width: 28px; height: 28px; }
+            .find-us-header h2 {
+                font-size: 0.9rem;
+            }
+            .find-us-header .title-wrapper .gis-icon {
+                width: 20px;
+                height: 20px;
+            }
+            #zamandas-map {
+                min-height: 160px;
+            }
+            .map-wrapper-find {
+                min-height: 160px;
+            }
         }
     </style>
 </head>
@@ -1240,13 +1459,10 @@
                 </div>
             </div>
 
-            <!-- 6. БЛЮДА ДЛЯ КОМПАНИЙ (НОВАЯ КАТЕГОРИЯ) -->
+            <!-- 6. БЛЮДА ДЛЯ КОМПАНИЙ -->
             <h4 class="category-headline">Блюда для компаний</h4>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <div class="item-img">
-                        <img src="https://i.ibb.co.com/YRw8hLrF/beshbarmak.jpg" alt="Бешбармак" />
-                    </div>
                     <div class="item-info">
                         <h3>Бешбармак</h3>
                         <div class="desc">Традиционный казахский бешбармак с нежным отварным мясом, домашним тестом и ароматным бульоном. Идеальное блюдо для семейных встреч и больших компаний.</div>
@@ -1258,9 +1474,6 @@
                 </div>
 
                 <div class="menu-item">
-                    <div class="item-img">
-                        <img src="https://i.ibb.co.com/JQb2f5D/syrne.jpg" alt="Сырне" />
-                    </div>
                     <div class="item-info">
                         <h3>Сырне</h3>
                         <div class="desc">Нежное мясо, томлённое с картофелем, луком и ароматными специями до насыщенного вкуса. Отличный выбор для дружеских застолий и семейных праздников.</div>
@@ -1272,9 +1485,6 @@
                 </div>
 
                 <div class="menu-item">
-                    <div class="item-img">
-                        <img src="https://i.ibb.co.com/hdStkRj/plov.jpg" alt="Плов" />
-                    </div>
                     <div class="item-info">
                         <h3>Плов</h3>
                         <div class="desc">Рассыпчатый плов с сочным мясом, морковью, луком и восточными специями, приготовленный по традиционному рецепту. Подаётся горячим и идеально подходит для большой компании.</div>
@@ -1285,7 +1495,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Дополнительная информация под блюдами для компаний -->
             <div style="text-align: center; margin-top: 16px; font-size: 0.75rem; color: var(--cream-light); opacity: 0.6; letter-spacing: 0.3px; border-top: 1px solid var(--border-gold); padding-top: 16px;">
                 Все блюда готовятся по предварительному заказу. Рекомендуем оформить заказ минимум за 24 часа до мероприятия.
             </div>
@@ -1394,28 +1603,56 @@
     </section>
 
     <!-- ============================================================
-        БЛОК 2ГИС
+    БЛОК: КАК НАС НАЙТИ (ИСПРАВЛЕННЫЕ КООРДИНАТЫ)
     ============================================================ -->
-    <section class="gis-section" id="gis-block">
+    <section id="find-us" style="padding: 30px 0;">
         <div class="container">
-            <div class="gis-card">
-                <svg class="gis-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 21C16 17 20 14.2105 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 14.2105 8 17 12 21Z" stroke="#2382C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="12" cy="10" r="3" stroke="#2382C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <div class="gis-title">Zamandas в 2ГИС</div>
-                <div class="gis-rating">
-                    <span class="score">4.9</span>
-                    <span class="stars">★★★★★</span>
-                    <span class="count">(983 отзыва)</span>
+            <div class="find-us-section">
+                <!-- Заголовок -->
+                <div class="find-us-header">
+                    <div class="title-wrapper">
+                        <!-- Иконка 2ГИС -->
+                        <svg class="gis-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 21C16 17 20 14.2105 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 14.2105 8 17 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h2>ZAMANDAS</h2>
+                    </div>
+                    <div class="sub-title">2ГИС • 4.9 ★ 1018 отзывов</div>
                 </div>
-                <a href="https://2gis.kz/kokshetau/geo/70000001102577921" target="_blank" class="btn btn-gis-premium">
-                    Открыть в 2ГИС
-                </a>
+
+                <!-- Карта с ПРАВИЛЬНЫМИ координатами -->
+                <div class="map-wrapper-find">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2347.456789012345!2d69.395779!3d53.289959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTPCsDE3JzIzLjkiTiA2OcKwMjMnNDQuOCJF!5e0!3m2!1sru!2skz!4v1719999999999" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; min-height:300px; display:block; width:100%; height:100%;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="map-overlay">
+                        <span>Открыть в 2ГИС</span>
+                    </div>
+                </div>
+
+                <!-- Кнопка под картой (ссылка обновлена) -->
+                <div class="actions-find">
+                    <a href="https://2gis.kz/kokshetau/geo/70030076161388858" 
+                       target="_blank" rel="noopener noreferrer" class="btn-gis-find">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 21C16 17 20 14.2105 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 14.2105 8 17 12 21Z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        Открыть в 2ГИС →
+                    </a>
+                </div>
+
+                <div class="find-us-hint">Нажмите на карту, чтобы перейти в 2ГИС</div>
             </div>
         </div>
     </section>
-
     <!-- ============================================================
         КОНТАКТЫ
     ============================================================ -->
@@ -1483,10 +1720,6 @@
         </div>
     </section>
 
-    <!-- ============================================================
-        НИЖНЯЯ НАВИГАЦИЯ — УДАЛЕНА
-    ============================================================ -->
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // ---- БРОНИРОВАНИЕ (WhatsApp) ----
@@ -1527,6 +1760,15 @@
                     window.open(`https://wa.me/77051009603?text=${message}`, '_blank');
                 });
             });
+
+            // ---- КЛИК ПО КАРТЕ → 2ГИС ----
+            const mapWrapper = document.querySelector('.map-wrapper-find');
+            if (mapWrapper) {
+                mapWrapper.addEventListener('click', function(e) {
+                    // Игнорируем клик по iframe (он всё равно перехватывается)
+                    window.open('https://2gis.kz/kokshetau/firm/70000001102577921?m=69.396%2C53.288667%2F15&ruler', '_blank');
+                });
+            }
         });
     </script>
 
