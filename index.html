@@ -1110,6 +1110,38 @@
             letter-spacing: 0.5px;
         }
 
+        /* ---- СТИЛИ ДЛЯ БЛОКА ОТЗЫВА ---- */
+        .review-callout {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            padding: 16px 14px;
+            margin: 16px 0 20px 0;
+            border: 1px solid var(--border-gold);
+            text-align: left;
+        }
+
+        .review-callout .callout-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-family: var(--font-heading);
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .review-callout .callout-title .star-icon {
+            font-size: 1.4rem;
+        }
+
+        .review-callout .callout-text {
+            font-size: 0.75rem;
+            color: #999;
+            line-height: 1.6;
+            margin: 0;
+        }
+
         /* ============================================================
             АДАПТИВНОСТЬ
         ============================================================ */
@@ -1314,10 +1346,8 @@
         </div>
     </section>
 
-    
-
     <!-- ============================================================
-        ОСТАЛЬНЫЕ РАЗДЕЛЫ МЕНЮ (СОХРАНЕНЫ)
+        МЕНЮ С КАТЕГОРИЯМИ (полностью сохранено)
     ============================================================ -->
     <section id="menu" style="padding-top:10px;">
         <div class="container">
@@ -1648,7 +1678,7 @@
             <h4 class="category-headline">Барное меню</h4>
             
             <!-- Авторские чаи -->
-            <h5 class="subcategory-headline">🫖 Авторские чаи</h5>
+            <h5 class="subcategory-headline"> Авторские чаи</h5>
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-info">
@@ -1702,7 +1732,7 @@
             </div>
 
             <!-- Купажированный чай -->
-            <h5 class="subcategory-headline">🍃 Купажированный чай</h5>
+            <h5 class="subcategory-headline"> Купажированный чай</h5>
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-info">
@@ -1728,7 +1758,7 @@
             </div>
 
             <!-- Кофе -->
-            <h5 class="subcategory-headline">☕ Кофе</h5>
+            <h5 class="subcategory-headline"> Кофе</h5>
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-info">
@@ -1775,7 +1805,7 @@
             </div>
 
             <!-- Лимонады -->
-            <h5 class="subcategory-headline">🍋 Лимонады</h5>
+            <h5 class="subcategory-headline"> Лимонады</h5>
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-info">
@@ -1822,7 +1852,7 @@
             </div>
 
             <!-- Напитки -->
-            <h5 class="subcategory-headline">🥤 Напитки</h5>
+            <h5 class="subcategory-headline"> Напитки</h5>
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-info">
@@ -1848,7 +1878,7 @@
             </div>
 
             <!-- Молочные коктейли -->
-            <h5 class="subcategory-headline">🥛 Молочные коктейли</h5>
+            <h5 class="subcategory-headline"> Молочные коктейли</h5>
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-info">
@@ -1877,7 +1907,7 @@
             <h4 class="category-headline">Молочные напитки</h4>
             
             <!-- Молочные напитки -->
-            <h5 class="subcategory-headline">🥤 Молочные напитки</h5>
+            <h5 class="subcategory-headline"> Молочные напитки</h5>
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-img"><img src="https://i.ibb.co.com/NH48dhS/Whats-App-Image-2026-07-15-at-00-54-39.jpg" alt="Драгон Фрукт" /></div>
@@ -1918,7 +1948,7 @@
             </div>
 
             <!-- Десертные напитки -->
-            <h5 class="subcategory-headline">🍰 Десертные напитки</h5>
+            <h5 class="subcategory-headline"> Десертные напитки</h5>
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-img"><img src="https://i.ibb.co.com/mVTCQ7hK/Whats-App-Image-2026-07-15-at-00-54-39-3.jpg" alt="Сникерс десерт" /></div>
@@ -1947,7 +1977,7 @@
             </div>
 
             <!-- Фруктовые содовые -->
-            <h5 class="subcategory-headline">🍹 Фруктовые содовые</h5>
+            <h5 class="subcategory-headline"> Фруктовые содовые</h5>
             <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-img"><img src="https://i.ibb.co.com/vvzd8tGD/Whats-App-Image-2026-07-15-at-00-54-39-5.jpg" alt="Маракуйя–Киви" /></div>
@@ -2028,6 +2058,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <!-- ============================================================
         ПРЕИМУЩЕСТВА
@@ -2129,9 +2161,8 @@
             </div>
         </div>
     </section>
-
-    <!-- ============================================================
-        БЛОК: КАК НАС НАЙТИ (СТИЛЬ 2ГИС)
+<!-- ============================================================
+        БЛОК: КАК НАС НАЙТИ (СТИЛЬ 2ГИС) С ОТЗЫВОМ
     ============================================================ -->
     <section id="find-us" style="padding: 30px 0;">
         <div class="container">
@@ -2148,6 +2179,17 @@
                     <div class="sub-title">2ГИС • 4.9 ★ 1818 отзывов</div>
                 </div>
 
+                <!-- Блок с призывом оставить отзыв -->
+                <div class="review-callout">
+                    <div class="callout-title">
+                        <span class="star-icon"></span>
+                        <span>Ваш отзыв — лучшая благодарность</span>
+                    </div>
+                    <p class="callout-text">
+                        Если вам понравилось в Zamandas Cafe, уделите минуту и расскажите о нас в 2ГИС. Каждая оценка и отзыв помогают нам развиваться и радовать гостей ещё больше.
+                    </p>
+                </div>
+
                 <!-- Карта -->
                 <div class="map-wrapper-find">
                     <iframe 
@@ -2159,7 +2201,6 @@
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
-                    <!-- Кнопка при наведении убрана -->
                 </div>
 
                 <!-- Кнопка под картой -->
@@ -2178,7 +2219,6 @@
             </div>
         </div>
     </section>
-
     <!-- ============================================================
         КОНТАКТЫ
     ============================================================ -->
