@@ -373,6 +373,16 @@
             padding-bottom: 8px;
         }
 
+        .subcategory-headline {
+            font-family: var(--font-heading);
+            color: var(--gold);
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin: 16px 0 8px 0;
+            border-left: 3px solid var(--gold);
+            padding-left: 12px;
+        }
+
         /* ---- HERO ---- */
         .hero {
             min-height: 100vh;
@@ -631,6 +641,23 @@
             background: var(--gold);
             color: var(--bg-dark-1);
             box-shadow: 0 4px 12px rgba(209, 161, 92, 0.2);
+        }
+
+        .price-variants {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--cream-light);
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+
+        .price-variants span {
+            background: rgba(209, 161, 92, 0.08);
+            padding: 2px 10px;
+            border-radius: 20px;
+            border: 1px solid var(--border-gold);
         }
 
         /* ---- ПРЕИМУЩЕСТВА ---- */
@@ -1388,20 +1415,7 @@
                 </div>
             </div>
 
-            <!-- 3. БЛЮДО ОТ ШЕФА -->
-            <h4 class="category-headline">Блюдо от шефа</h4>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <div class="item-img"><img src="https://i.ibb.co.com/d43V4gQT/Chat-GPT-Image-13-2026-17-18-52.png" alt="Куриная грудка от шефа" /></div>
-                    <div class="item-info">
-                        <h3>Куриная грудка от шефа</h3>
-                        <div class="desc">Сочная куриная грудка с нежным картофельным пюре. Главный акцент блюда — гармония трёх соусов: сливочного, песто и бальзамика. Ничего лишнего, только насыщенный вкус.</div>
-                        <div class="item-footer"><div class="item-price">3 190 ₸</div><button class="btn-order" data-item="Куриная грудка от шефа">Добавить</button></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. СУПЫ -->
+            <!-- 3. СУПЫ -->
             <h4 class="category-headline">Супы</h4>
             <div class="menu-grid">
                 <div class="menu-item">
@@ -1426,6 +1440,44 @@
                         <h3>Грибной крем-суп</h3>
                         <div class="desc">Нежный крем-суп из шампиньонов, приготовленный на овощном бульоне со сливками. Подаётся с крутонами и микрозеленью.</div>
                         <div class="item-footer"><div class="item-price">1 690 ₸</div><button class="btn-order" data-item="Грибной крем-суп">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/yDzp5jV/Chat-GPT-Image-14-2026-16-46-24.png" alt="Пельмени конские" /></div>
+                    <div class="item-info">
+                        <h3>Пельмени конские</h3>
+                        <div class="desc">Домашние пельмени с сочной кониной, отваренные до идеальной готовности. Подаются в ароматном горячем бульоне со свежей зеленью и специями.</div>
+                        <div class="item-footer"><div class="item-price">1 790 ₸</div><button class="btn-order" data-item="Пельмени конские">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. ОСНОВНЫЕ БЛЮДА (СЫРНЕ — НОВОЕ ФОТО) -->
+            <h4 class="category-headline">Основные блюда</h4>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/YB0kPdSW/Chat-GPT-Image-14-2026-16-57-29.png" alt="Фирменное блюдо от шефа" /></div>
+                    <div class="item-info">
+                        <h3>Фирменное блюдо от шефа</h3>
+                        <div class="desc">Томлёные говяжьи рёбра в медовом барбекю — мягкие, сочные, с лёгкой сладостью. Подаются с воздушным картофельно-шпинатным пюре, микрозеленью и фирменным соусом.</div>
+                        <div class="item-footer"><div class="item-price">3 690 ₸</div><button class="btn-order" data-item="Фирменное блюдо от шефа">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/yF2X8q0W/Chat-GPT-Image-14-2026-16-57-34.png" alt="Фрикасе с рисом" /></div>
+                    <div class="item-info">
+                        <h3>Фрикасе с рисом</h3>
+                        <div class="desc">Нежное куриное филе, обжаренное с шампиньонами и болгарским перцем, томлённое в сливочном соусе. Подаётся с рассыпчатым рисом и микрозеленью.</div>
+                        <div class="item-footer"><div class="item-price">2 990 ₸</div><button class="btn-order" data-item="Фрикасе с рисом">Добавить</button></div>
+                    </div>
+                </div>
+                <!-- СЫРНЕ — НОВОЕ ФОТО -->
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/1G8X6s78/Whats-App-Image-2026-07-15-at-00-50-28.jpg" alt="Сырне" /></div>
+                    <div class="item-info">
+                        <h3>Сырне</h3>
+                        <div class="desc">Нежные томлёные говяжьи рёбра с чесноком и ароматной зирой. Подаются с запечённым картофелем, свежими овощами, красным луком, зеленью и микрозеленью.</div>
+                        <div class="item-footer"><div class="item-price">3 490 ₸</div><button class="btn-order" data-item="Сырне">Добавить</button></div>
                     </div>
                 </div>
             </div>
@@ -1459,7 +1511,482 @@
                 </div>
             </div>
 
-            <!-- 6. БЛЮДА ДЛЯ КОМПАНИЙ -->
+            <!-- 6. ДОНЕРЫ -->
+            <h4 class="category-headline">Донеры</h4>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/N2qVqP0k/Chat-GPT-Image-14-2026-17-19-35.png" alt="Донер Zamandas из шашлыка" /></div>
+                    <div class="item-info">
+                        <h3>Донер Zamandas из шашлыка</h3>
+                        <div class="desc">Сочный шашлык, свежие помидоры и огурцы, хрустящий картофель фри и фирменный соус, завёрнутые в тонкий лаваш. Идеальный выбор для сытного и вкусного обеда.</div>
+                        <div class="item-footer"><div class="item-price">2 090 ₸</div><button class="btn-order" data-item="Донер Zamandas из шашлыка">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/HLWptBvF/Chat-GPT-Image-15-2026-00-04-02.png" alt="Донер Zamandas в батоне из шашлыка" /></div>
+                    <div class="item-info">
+                        <h3>Донер Zamandas в батоне из шашлыка</h3>
+                        <div class="desc">Нежный шашлык, свежие помидоры и огурцы, золотистый картофель фри и фирменный соус в хрустящем батоне. Сытный донер с насыщенным вкусом и аппетитной хрустящей корочкой.</div>
+                        <div class="item-footer"><div class="item-price">2 390 ₸</div><button class="btn-order" data-item="Донер Zamandas в батоне из шашлыка">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. ПИЦЦА И ХАЧАПУРИ -->
+            <h4 class="category-headline">Пицца и хачапури</h4>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/qLDrbymn/Whats-App-Image-2026-07-15-at-00-13-58.jpg" alt="Пепперони" /></div>
+                    <div class="item-info">
+                        <h3>Пепперони</h3>
+                        <div class="desc">Классическая пицца на тонком тесте с фирменным томатным соусом, нежной моцареллой и ароматной салями пепперони.</div>
+                        <div class="item-footer"><div class="item-price">3 590 ₸</div><button class="btn-order" data-item="Пепперони">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/kWhZvW8/Whats-App-Image-2026-07-15-at-00-24-50.jpg" alt="Маргарита" /></div>
+                    <div class="item-info">
+                        <h3>Маргарита</h3>
+                        <div class="desc">Классическая пицца с фирменным томатным соусом, нежной моцареллой и свежими томатами. Простое сочетание ингредиентов с насыщенным вкусом.</div>
+                        <div class="item-footer"><div class="item-price">3 090 ₸</div><button class="btn-order" data-item="Маргарита">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/HDNdbDdd/Whats-App-Image-2026-07-15-at-00-24-50-1.jpg" alt="Охотничья" /></div>
+                    <div class="item-info">
+                        <h3>Охотничья</h3>
+                        <div class="desc">Пицца с томатным соусом, моцареллой, охотничьими колбасками, свежими томатами и хрустящими корнишонами.</div>
+                        <div class="item-footer"><div class="item-price">3 590 ₸</div><button class="btn-order" data-item="Охотничья">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/cXyZ9X1f/Whats-App-Image-2026-07-15-at-00-24-50-2.jpg" alt="Хачапури по-аджарски" /></div>
+                    <div class="item-info">
+                        <h3>Хачапури по-аджарски</h3>
+                        <div class="desc">Традиционное грузинское хачапури с воздушным тестом, большим количеством расплавленного сыра, сливочным маслом и яичным желтком в центре.</div>
+                        <div class="item-footer"><div class="item-price">2 990 ₸</div><button class="btn-order" data-item="Хачапури по-аджарски">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. ДЕТСКОЕ МЕНЮ -->
+            <h4 class="category-headline">Детское меню</h4>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/7dgNtGhq/Whats-App-Image-2026-07-15-at-00-32-15.jpg" alt="Спагетти с сыром" /></div>
+                    <div class="item-info">
+                        <h3>Спагетти с сыром</h3>
+                        <div class="desc">Нежные спагетти в сливочном соусе с тёртым пармезаном. Любимое блюдо детей с мягким сливочным вкусом.</div>
+                        <div class="item-footer"><div class="item-price">1 690 ₸</div><button class="btn-order" data-item="Спагетти с сыром">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/kt1CTHS/Whats-App-Image-2026-07-15-at-00-32-15-1.jpg" alt="Наггетсы" /></div>
+                    <div class="item-info">
+                        <h3>Наггетсы</h3>
+                        <div class="desc">Хрустящие куриные наггетсы с золотистой панировкой. Подаются с нежным сырным соусом.</div>
+                        <div class="item-footer"><div class="item-price">1 690 ₸</div><button class="btn-order" data-item="Наггетсы">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/1YJ9nHZh/Whats-App-Image-2026-07-15-at-00-32-15-2.jpg" alt="Картофель фри" /></div>
+                    <div class="item-info">
+                        <h3>Картофель фри</h3>
+                        <div class="desc">Хрустящий картофель фри, обжаренный до золотистой корочки. Подаётся с томатным кетчупом.</div>
+                        <div class="item-footer"><div class="item-price">990 ₸</div><button class="btn-order" data-item="Картофель фри">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. ДЕСЕРТЫ -->
+            <h4 class="category-headline">Десерты</h4>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/FkR9b0Q3/Whats-App-Image-2026-07-15-at-00-37-52.jpg" alt="Упи пай" /></div>
+                    <div class="item-info">
+                        <h3>Упи пай</h3>
+                        <div class="desc">Нежные шоколадные коржи с воздушным сливочным кремом. Идеальное сочетание насыщенного вкуса и лёгкой сладости.</div>
+                        <div class="item-footer"><div class="item-price">1 800 ₸</div><button class="btn-order" data-item="Упи пай">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/1G3hQDRX/Whats-App-Image-2026-07-15-at-00-37-52-1.jpg" alt="Молочная девочка" /></div>
+                    <div class="item-info">
+                        <h3>Молочная девочка</h3>
+                        <div class="desc">Тонкие молочные коржи, пропитанные нежным сливочным кремом. Лёгкий и воздушный десерт с деликатным вкусом.</div>
+                        <div class="item-footer"><div class="item-price">1 800 ₸</div><button class="btn-order" data-item="Молочная девочка">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/jZqV0pZ9/Whats-App-Image-2026-07-15-at-00-37-52-2.jpg" alt="Сникерс" /></div>
+                    <div class="item-info">
+                        <h3>Сникерс</h3>
+                        <div class="desc">Шоколадный десерт с нежным кремом, карамелью, арахисом и шоколадными коржами. Настоящее удовольствие для любителей насыщенных сладостей.</div>
+                        <div class="item-footer"><div class="item-price">1 800 ₸</div><button class="btn-order" data-item="Сникерс">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/Kcq5XwMK/Whats-App-Image-2026-07-15-at-00-37-52-3.jpg" alt="Баноффи пай" /></div>
+                    <div class="item-info">
+                        <h3>Баноффи пай</h3>
+                        <div class="desc">Песочная основа с нежной карамелью, спелыми бананами и воздушными сливками. Классический английский десерт с насыщенным сливочным вкусом.</div>
+                        <div class="item-footer"><div class="item-price">1 250 ₸</div><button class="btn-order" data-item="Баноффи пай">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/VWz1LZ8b/Whats-App-Image-2026-07-15-at-00-37-53.jpg" alt="Бауырсаки со сгущёнкой" /></div>
+                    <div class="item-info">
+                        <h3>Бауырсаки со сгущёнкой</h3>
+                        <div class="desc">Свежие румяные бауырсаки, обжаренные до золотистой корочки. Подаются со сладкой сгущёнкой.</div>
+                        <div class="item-footer"><div class="item-price">1 590 ₸</div><button class="btn-order" data-item="Бауырсаки со сгущёнкой">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. БАРНОЕ МЕНЮ -->
+            <h4 class="category-headline">Барное меню</h4>
+            
+            <!-- Авторские чаи -->
+            <h5 class="subcategory-headline"> Авторские чаи</h5>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Ташкентский</h3>
+                        <div class="desc">Освежающий чай с цитрусовыми нотами, зелёным чаем и ароматной мятой.</div>
+                        <div class="item-footer"><div class="item-price">1 890 ₸</div><button class="btn-order" data-item="Ташкентский чай">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Облепиховый</h3>
+                        <div class="desc">Согревающий чай с натуральной облепихой, мёдом и цитрусами.</div>
+                        <div class="item-footer"><div class="item-price">1 890 ₸</div><button class="btn-order" data-item="Облепиховый чай">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Ягодный</h3>
+                        <div class="desc">Насыщенный чай с лесными ягодами, фруктами и лёгкой кислинкой.</div>
+                        <div class="item-footer"><div class="item-price">1 890 ₸</div><button class="btn-order" data-item="Ягодный чай">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Мята–чабрец</h3>
+                        <div class="desc">Ароматный травяной чай с освежающей мятой и душистым чабрецом.</div>
+                        <div class="item-footer"><div class="item-price">1 890 ₸</div><button class="btn-order" data-item="Мята–чабрец чай">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Малина–лайм</h3>
+                        <div class="desc">Яркое сочетание сладкой малины и освежающего лайма.</div>
+                        <div class="item-footer"><div class="item-price">1 890 ₸</div><button class="btn-order" data-item="Малина–лайм чай">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Облепиха–имбирь</h3>
+                        <div class="desc">Облепиха с пряным имбирём создают насыщенный согревающий вкус.</div>
+                        <div class="item-footer"><div class="item-price">1 890 ₸</div><button class="btn-order" data-item="Облепиха–имбирь чай">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Масала</h3>
+                        <div class="desc">Пряный индийский чай с ароматными специями и нежным сливочным вкусом.</div>
+                        <div class="item-footer"><div class="item-price">1 890 ₸</div><button class="btn-order" data-item="Масала чай">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Купажированный чай -->
+            <h5 class="subcategory-headline"> Купажированный чай</h5>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Ассам</h3>
+                        <div class="desc">Классический чёрный чай с насыщенным вкусом и благородным ароматом.</div>
+                        <div class="item-footer"><div class="item-price">1 190 ₸</div><button class="btn-order" data-item="Ассам чай">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Сенча</h3>
+                        <div class="desc">Японский зелёный чай с мягким вкусом и свежими травянистыми нотами.</div>
+                        <div class="item-footer"><div class="item-price">1 190 ₸</div><button class="btn-order" data-item="Сенча чай">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Жасмин</h3>
+                        <div class="desc">Нежный зелёный чай с тонким ароматом жасмина.</div>
+                        <div class="item-footer"><div class="item-price">1 190 ₸</div><button class="btn-order" data-item="Жасмин чай">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кофе -->
+            <h5 class="subcategory-headline"> Кофе</h5>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Американо</h3>
+                        <div class="desc">Классический чёрный кофе с насыщенным вкусом и приятным ароматом.</div>
+                        <div class="item-footer"><div class="item-price">790 ₸</div><button class="btn-order" data-item="Американо">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Капучино</h3>
+                        <div class="desc">Эспрессо с воздушной молочной пенкой и мягким сливочным вкусом.</div>
+                        <div class="item-footer"><div class="item-price">1 290 ₸</div><button class="btn-order" data-item="Капучино">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Латте</h3>
+                        <div class="desc">Нежный кофейный напиток с большим количеством горячего молока.</div>
+                        <div class="item-footer"><div class="item-price">1 190 ₸</div><button class="btn-order" data-item="Латте">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Раф</h3>
+                        <div class="desc">Воздушный кофе со сливками и лёгкой ванильной сладостью.</div>
+                        <div class="item-footer"><div class="item-price">1 590 ₸</div><button class="btn-order" data-item="Раф">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Медовый раф</h3>
+                        <div class="desc">Нежный раф с натуральным мёдом и бархатистой сливочной текстурой.</div>
+                        <div class="item-footer"><div class="item-price">1 690 ₸</div><button class="btn-order" data-item="Медовый раф">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Айс латте</h3>
+                        <div class="desc">Освежающий холодный латте с молоком и насыщенным эспрессо.</div>
+                        <div class="item-footer"><div class="item-price">1 190 ₸</div><button class="btn-order" data-item="Айс латте">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Лимонады -->
+            <h5 class="subcategory-headline"> Лимонады</h5>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Ягодный</h3>
+                        <div class="desc">Освежающий лимонад с миксом сочных ягод.</div>
+                        <div class="item-footer"><div class="item-price">2 290 ₸</div><button class="btn-order" data-item="Ягодный лимонад">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Цитрусовый</h3>
+                        <div class="desc">Яркий лимонад с апельсином, лимоном и лаймом.</div>
+                        <div class="item-footer"><div class="item-price">2 290 ₸</div><button class="btn-order" data-item="Цитрусовый лимонад">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Манго–маракуйя</h3>
+                        <div class="desc">Тропическое сочетание сладкого манго и ароматной маракуйи.</div>
+                        <div class="item-footer"><div class="item-price">2 290 ₸</div><button class="btn-order" data-item="Манго–маракуйя лимонад">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Морской бриз</h3>
+                        <div class="desc">Лёгкий освежающий лимонад с цитрусовыми и прохладными фруктовыми нотами.</div>
+                        <div class="item-footer"><div class="item-price">2 290 ₸</div><button class="btn-order" data-item="Морской бриз лимонад">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Тропический</h3>
+                        <div class="desc">Экзотический лимонад с насыщенным вкусом спелых фруктов.</div>
+                        <div class="item-footer"><div class="item-price">2 290 ₸</div><button class="btn-order" data-item="Тропический лимонад">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Мохито</h3>
+                        <div class="desc">Освежающий лимонад с лаймом, свежей мятой и лёгкой газированностью.</div>
+                        <div class="item-footer"><div class="item-price">2 290 ₸</div><button class="btn-order" data-item="Мохито лимонад">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Напитки -->
+            <h5 class="subcategory-headline"> Напитки</h5>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Кола</h3>
+                        <div class="desc">Классический прохладительный газированный напиток.</div>
+                        <div class="item-footer"><div class="item-price">900 ₸</div><button class="btn-order" data-item="Кола">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Сок в ассортименте</h3>
+                        <div class="desc">Натуральный сок на выбор из ассортимента.</div>
+                        <div class="item-footer"><div class="item-price">1 790 ₸</div><button class="btn-order" data-item="Сок в ассортименте">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Детский сок</h3>
+                        <div class="desc">Фруктовый сок для детей с мягким натуральным вкусом.</div>
+                        <div class="item-footer"><div class="item-price">590 ₸</div><button class="btn-order" data-item="Детский сок">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Молочные коктейли -->
+            <h5 class="subcategory-headline"> Молочные коктейли</h5>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Орео</h3>
+                        <div class="desc">Густой молочный коктейль с печеньем Oreo и сливочным мороженым.</div>
+                        <div class="item-footer"><div class="item-price">2 490 ₸</div><button class="btn-order" data-item="Орео коктейль">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Клубничный</h3>
+                        <div class="desc">Нежный молочный коктейль со спелой клубникой.</div>
+                        <div class="item-footer"><div class="item-price">2 490 ₸</div><button class="btn-order" data-item="Клубничный коктейль">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Ванильный</h3>
+                        <div class="desc">Классический молочный коктейль с натуральной ванилью и сливочным вкусом.</div>
+                        <div class="item-footer"><div class="item-price">2 490 ₸</div><button class="btn-order" data-item="Ванильный коктейль">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. МОЛОЧНЫЕ НАПИТКИ -->
+            <h4 class="category-headline">Молочные напитки</h4>
+            
+            <!-- Молочные напитки -->
+            <h5 class="subcategory-headline"> Молочные напитки</h5>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/NH48dhS/Whats-App-Image-2026-07-15-at-00-54-39.jpg" alt="Драгон Фрукт" /></div>
+                    <div class="item-info">
+                        <h3>Драгон Фрукт</h3>
+                        <div class="price-variants">
+                            <span>360 мл — 1 690 ₸</span>
+                            <span>700 мл — 2 390 ₸</span>
+                        </div>
+                        <div class="desc">Нежный молочный напиток на основе жасминового чая с пюре драгон фрукта и шариками тапиоки. Лёгкий цветочный вкус с приятной тропической сладостью.</div>
+                        <div class="item-footer"><button class="btn-order" data-item="Драгон Фрукт молочный напиток">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/vvknh1Mh/Whats-App-Image-2026-07-15-at-00-54-39-1.jpg" alt="Матча с тапиокой" /></div>
+                    <div class="item-info">
+                        <h3>Матча с тапиокой (зелёная)</h3>
+                        <div class="price-variants">
+                            <span>360 мл — 1 690 ₸</span>
+                            <span>700 мл — 2 390 ₸</span>
+                        </div>
+                        <div class="desc">Премиальная японская матча, взбитая с молоком и дополненная шариками тапиоки. Насыщенный чайный вкус со сливочными нотами и нежной текстурой.</div>
+                        <div class="item-footer"><button class="btn-order" data-item="Матча с тапиокой">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/XkM205j5/Whats-App-Image-2026-07-15-at-00-54-39-2.jpg" alt="Орео Милк Ти" /></div>
+                    <div class="item-info">
+                        <h3>Орео Милк Ти</h3>
+                        <div class="price-variants">
+                            <span>360 мл — 1 690 ₸</span>
+                            <span>700 мл — 2 390 ₸</span>
+                        </div>
+                        <div class="desc">Молочный напиток с ароматным чаем, крошкой печенья Oreo и тапиокой. Сладкий, насыщенный и по-настоящему десертный вкус.</div>
+                        <div class="item-footer"><button class="btn-order" data-item="Орео Милк Ти">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Десертные напитки -->
+            <h5 class="subcategory-headline"> Десертные напитки</h5>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/mVTCQ7hK/Whats-App-Image-2026-07-15-at-00-54-39-3.jpg" alt="Сникерс десерт" /></div>
+                    <div class="item-info">
+                        <h3>Сникерс (десерт)</h3>
+                        <div class="price-variants">
+                            <span>360 мл — 1 690 ₸</span>
+                            <span>700 мл — 2 390 ₸</span>
+                        </div>
+                        <div class="desc">Густой молочный напиток с шоколадом, арахисом, мороженым и шариками тапиоки. Вдохновлён вкусом любимого шоколадного батончика.</div>
+                        <div class="item-footer"><button class="btn-order" data-item="Сникерс десерт">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/KH50z8S/Whats-App-Image-2026-07-15-at-00-54-39-4.jpg" alt="Фраппе с тапиокой" /></div>
+                    <div class="item-info">
+                        <h3>Фраппе с тапиокой</h3>
+                        <div class="price-variants">
+                            <span>360 мл — 1 690 ₸</span>
+                            <span>700 мл — 2 390 ₸</span>
+                        </div>
+                        <div class="desc">Освежающий кофейный фраппе со сливочной пенкой и шариками тапиоки. Идеальное сочетание насыщенного кофе и прохлады.</div>
+                        <div class="item-footer"><button class="btn-order" data-item="Фраппе с тапиокой">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Фруктовые содовые -->
+            <h5 class="subcategory-headline"> Фруктовые содовые</h5>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/vvzd8tGD/Whats-App-Image-2026-07-15-at-00-54-39-5.jpg" alt="Маракуйя–Киви" /></div>
+                    <div class="item-info">
+                        <h3>Маракуйя–Киви</h3>
+                        <div class="price-variants">
+                            <span>360 мл — 1 690 ₸</span>
+                            <span>700 мл — 2 390 ₸</span>
+                        </div>
+                        <div class="desc">Освежающий газированный напиток с сочной маракуйей и киви. Лёгкая кислинка, натуральный фруктовый вкус и приятная свежесть.</div>
+                        <div class="item-footer"><button class="btn-order" data-item="Маракуйя–Киви содовая">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/qMn9LMZq/Whats-App-Image-2026-07-15-at-00-54-39-6.jpg" alt="Маракуйя" /></div>
+                    <div class="item-info">
+                        <h3>Маракуйя</h3>
+                        <div class="price-variants">
+                            <span>360 мл — 1 690 ₸</span>
+                            <span>700 мл — 2 390 ₸</span>
+                        </div>
+                        <div class="desc">Газированный напиток с насыщенным вкусом спелой маракуйи. Яркий аромат, освежающая кислинка и тропическое послевкусие.</div>
+                        <div class="item-footer"><button class="btn-order" data-item="Маракуйя содовая">Добавить</button></div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-img"><img src="https://i.ibb.co.com/KjnF2n66/Whats-App-Image-2026-07-15-at-00-54-39-7.jpg" alt="Манго с содовой" /></div>
+                    <div class="item-info">
+                        <h3>Манго с содовой</h3>
+                        <div class="price-variants">
+                            <span>360 мл — 1 690 ₸</span>
+                            <span>700 мл — 2 390 ₸</span>
+                        </div>
+                        <div class="desc">Сладкий газированный напиток с натуральным пюре манго. Нежный тропический вкус и освежающая лёгкость в каждом глотке.</div>
+                        <div class="item-footer"><button class="btn-order" data-item="Манго с содовой">Добавить</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. БЛЮДА ДЛЯ КОМПАНИЙ -->
             <h4 class="category-headline">Блюда для компаний</h4>
             <div class="menu-grid">
                 <div class="menu-item">
@@ -1603,7 +2130,7 @@
     </section>
 
     <!-- ============================================================
-    БЛОК: КАК НАС НАЙТИ (ИСПРАВЛЕННЫЙ)
+        БЛОК: КАК НАС НАЙТИ (СТИЛЬ 2ГИС)
     ============================================================ -->
     <section id="find-us" style="padding: 30px 0;">
         <div class="container">
@@ -1611,7 +2138,6 @@
                 <!-- Заголовок -->
                 <div class="find-us-header">
                     <div class="title-wrapper">
-                        <!-- Иконка 2ГИС -->
                         <svg class="gis-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 21C16 17 20 14.2105 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 14.2105 8 17 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1632,10 +2158,10 @@
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
-                    <!-- УБРАНА КНОПКА ПРИ НАВЕДЕНИИ -->
+                    <!-- Кнопка при наведении убрана -->
                 </div>
 
-                <!-- Кнопка под картой (ведёт НА СТРАНИЦУ КАФЕ) -->
+                <!-- Кнопка под картой -->
                 <div class="actions-find">
                     <a href="https://2gis.kz/kokshetau/geo/70000001102577921" 
                        target="_blank" rel="noopener noreferrer" class="btn-gis-find">
@@ -1651,6 +2177,7 @@
             </div>
         </div>
     </section>
+
     <!-- ============================================================
         КОНТАКТЫ
     ============================================================ -->
@@ -1763,7 +2290,6 @@
             const mapWrapper = document.querySelector('.map-wrapper-find');
             if (mapWrapper) {
                 mapWrapper.addEventListener('click', function(e) {
-                    // Игнорируем клик по iframe (он всё равно перехватывается)
                     window.open('https://2gis.kz/kokshetau/firm/70000001102577921?m=69.396%2C53.288667%2F15&ruler', '_blank');
                 });
             }
